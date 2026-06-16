@@ -1,0 +1,3466 @@
+[
+  {
+    "title": "Classic Romance Wedding Invitation",
+    "category": "Wedding",
+    "subcategory": "Invitation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": true,
+    "style": "Elegant",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "elegant",
+      "invitation"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 1492
+  },
+  {
+    "title": "Modern Floral Wedding Invite",
+    "category": "Wedding",
+    "subcategory": "Invitation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "modern",
+      "invitation"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 3578
+  },
+  {
+    "title": "Vintage Lace Wedding Card",
+    "category": "Wedding",
+    "subcategory": "Invitation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Vintage",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "vintage",
+      "invitation"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 2084
+  },
+  {
+    "title": "Wedding Thank You Card",
+    "category": "Wedding",
+    "subcategory": "Thank You",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Classic",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "classic",
+      "thank you"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 4627
+  },
+  {
+    "title": "Save the Date Wedding Poster",
+    "category": "Wedding",
+    "subcategory": "Save the Date",
+    "type": "poster",
+    "width": 1600,
+    "height": 1200,
+    "premium": true,
+    "popular": true,
+    "style": "Luxury",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "luxury",
+      "save the date"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 4696
+  },
+  {
+    "title": "Wedding Program Brochure",
+    "category": "Wedding",
+    "subcategory": "Program",
+    "type": "flyer",
+    "width": 1000,
+    "height": 1400,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "elegant",
+      "program"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 929
+  },
+  {
+    "title": "Boho Wedding Invitation Suite",
+    "category": "Wedding",
+    "subcategory": "Invitation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Bohemian",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "bohemian",
+      "invitation"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 2299
+  },
+  {
+    "title": "Gold Foil Wedding Invite",
+    "category": "Wedding",
+    "subcategory": "Invitation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": true,
+    "style": "Luxury",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "luxury",
+      "invitation"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 3258
+  },
+  {
+    "title": "Rustic Wedding Menu Card",
+    "category": "Wedding",
+    "subcategory": "Menu",
+    "type": "card",
+    "width": 800,
+    "height": 1100,
+    "premium": false,
+    "popular": false,
+    "style": "Rustic",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "rustic",
+      "menu"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 1842
+  },
+  {
+    "title": "Wedding Seating Chart Template",
+    "category": "Wedding",
+    "subcategory": "Seating",
+    "type": "poster",
+    "width": 2000,
+    "height": 1400,
+    "premium": false,
+    "popular": false,
+    "style": "Classic",
+    "tags": [
+      "wedding",
+      "bridal",
+      "marriage",
+      "love",
+      "romantic",
+      "ceremony",
+      "reception",
+      "classic",
+      "seating"
+    ],
+    "palette": [
+      "#f8e8e8",
+      "#d4a5a5",
+      "#8b5e5e",
+      "#4a2c2c",
+      "#f5f0f0"
+    ],
+    "downloads": 4774
+  },
+  {
+    "title": "Kids Birthday Party Invitation",
+    "category": "Birthday",
+    "subcategory": "Kids",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": true,
+    "style": "Playful",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "playful",
+      "kids"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 1640
+  },
+  {
+    "title": "70s Disco Birthday Poster",
+    "category": "Birthday",
+    "subcategory": "Adult",
+    "type": "poster",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "bold",
+      "adult"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 2372
+  },
+  {
+    "title": "Elegant 50th Birthday Invite",
+    "category": "Birthday",
+    "subcategory": "Adult",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "elegant",
+      "adult"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 4067
+  },
+  {
+    "title": "Balloon Animal Birthday Card",
+    "category": "Birthday",
+    "subcategory": "Kids",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "playful",
+      "kids"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 1002
+  },
+  {
+    "title": "Minimal 21st Birthday Invitation",
+    "category": "Birthday",
+    "subcategory": "Adult",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": true,
+    "style": "Minimal",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "minimal",
+      "adult"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 513
+  },
+  {
+    "title": "Birthday Social Media Banner",
+    "category": "Birthday",
+    "subcategory": "Social Media",
+    "type": "social",
+    "width": 1500,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Gradient",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "gradient",
+      "social media"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 4772
+  },
+  {
+    "title": "Unicorn Birthday Party Invite",
+    "category": "Birthday",
+    "subcategory": "Kids",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "birthday",
+      "party",
+      "celebration",
+      "cake",
+      "balloons",
+      "playful",
+      "kids"
+    ],
+    "palette": [
+      "#fde8d0",
+      "#f9a8d4",
+      "#ec4899",
+      "#be185d",
+      "#fef08a"
+    ],
+    "downloads": 856
+  },
+  {
+    "title": "Corporate Business Card",
+    "category": "Business",
+    "subcategory": "Branding",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": true,
+    "style": "Corporate",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "corporate",
+      "branding"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 1893
+  },
+  {
+    "title": "Modern Company Letterhead",
+    "category": "Business",
+    "subcategory": "Branding",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "modern",
+      "branding"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 243
+  },
+  {
+    "title": "Business Proposal Cover Page",
+    "category": "Business",
+    "subcategory": "Proposal",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": true,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "corporate",
+      "proposal"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 699
+  },
+  {
+    "title": "Professional Invoice Template",
+    "category": "Business",
+    "subcategory": "Finance",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": true,
+    "style": "Minimal",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "minimal",
+      "finance"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 3986
+  },
+  {
+    "title": "Company Profile Brochure",
+    "category": "Business",
+    "subcategory": "Branding",
+    "type": "flyer",
+    "width": 1000,
+    "height": 1400,
+    "premium": true,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "corporate",
+      "branding"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 3983
+  },
+  {
+    "title": "Business Thank You Card",
+    "category": "Business",
+    "subcategory": "Branding",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "minimal",
+      "branding"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 818
+  },
+  {
+    "title": "Meeting Agenda Template",
+    "category": "Business",
+    "subcategory": "Meeting",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "business",
+      "corporate",
+      "professional",
+      "branding",
+      "office",
+      "corporate",
+      "meeting"
+    ],
+    "palette": [
+      "#1e3a5f",
+      "#2d5a87",
+      "#4a90b0",
+      "#7ab8d0",
+      "#f0f4f8"
+    ],
+    "downloads": 3422
+  },
+  {
+    "title": "Music Festival Poster",
+    "category": "Events",
+    "subcategory": "Festival",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Neon",
+    "tags": [
+      "event",
+      "gathering",
+      "celebration",
+      "conference",
+      "festival",
+      "neon",
+      "festival"
+    ],
+    "palette": [
+      "#1a1a2e",
+      "#16213e",
+      "#0f3460",
+      "#e94560",
+      "#533483"
+    ],
+    "downloads": 1976
+  },
+  {
+    "title": "Charity Gala Invitation",
+    "category": "Events",
+    "subcategory": "Gala",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "event",
+      "gathering",
+      "celebration",
+      "conference",
+      "festival",
+      "elegant",
+      "gala"
+    ],
+    "palette": [
+      "#1a1a2e",
+      "#16213e",
+      "#0f3460",
+      "#e94560",
+      "#533483"
+    ],
+    "downloads": 1452
+  },
+  {
+    "title": "Networking Event Flyer",
+    "category": "Events",
+    "subcategory": "Networking",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "event",
+      "gathering",
+      "celebration",
+      "conference",
+      "festival",
+      "modern",
+      "networking"
+    ],
+    "palette": [
+      "#1a1a2e",
+      "#16213e",
+      "#0f3460",
+      "#e94560",
+      "#533483"
+    ],
+    "downloads": 3929
+  },
+  {
+    "title": "Conference Speaker Banner",
+    "category": "Events",
+    "subcategory": "Conference",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "event",
+      "gathering",
+      "celebration",
+      "conference",
+      "festival",
+      "corporate",
+      "conference"
+    ],
+    "palette": [
+      "#1a1a2e",
+      "#16213e",
+      "#0f3460",
+      "#e94560",
+      "#533483"
+    ],
+    "downloads": 3198
+  },
+  {
+    "title": "Product Launch Invitation",
+    "category": "Events",
+    "subcategory": "Launch",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "event",
+      "gathering",
+      "celebration",
+      "conference",
+      "festival",
+      "bold",
+      "launch"
+    ],
+    "palette": [
+      "#1a1a2e",
+      "#16213e",
+      "#0f3460",
+      "#e94560",
+      "#533483"
+    ],
+    "downloads": 2914
+  },
+  {
+    "title": "Graduation Invitation Card",
+    "category": "Education",
+    "subcategory": "Graduation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": true,
+    "style": "Classic",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "classic",
+      "graduation"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 5026
+  },
+  {
+    "title": "School Event Flyer",
+    "category": "Education",
+    "subcategory": "School",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "playful",
+      "school"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 329
+  },
+  {
+    "title": "Certificate of Achievement",
+    "category": "Education",
+    "subcategory": "Certificate",
+    "type": "certificate",
+    "width": 2000,
+    "height": 1400,
+    "premium": false,
+    "popular": true,
+    "style": "Classic",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "classic",
+      "certificate"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 5077
+  },
+  {
+    "title": "Class Schedule Template",
+    "category": "Education",
+    "subcategory": "Schedule",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "minimal",
+      "schedule"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 597
+  },
+  {
+    "title": "Educational Workshop Poster",
+    "category": "Education",
+    "subcategory": "Workshop",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "modern",
+      "workshop"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 3133
+  },
+  {
+    "title": "Preschool Graduation Certificate",
+    "category": "Education",
+    "subcategory": "Certificate",
+    "type": "certificate",
+    "width": 2000,
+    "height": 1400,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "playful",
+      "certificate"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 751
+  },
+  {
+    "title": "Online Course Promo Banner",
+    "category": "Education",
+    "subcategory": "Online",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": true,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "education",
+      "school",
+      "learning",
+      "graduation",
+      "academic",
+      "modern",
+      "online"
+    ],
+    "palette": [
+      "#1e1b4b",
+      "#3730a3",
+      "#6366f1",
+      "#a5b4fc",
+      "#eef2ff"
+    ],
+    "downloads": 495
+  },
+  {
+    "title": "Concert Tour Poster",
+    "category": "Music",
+    "subcategory": "Concert",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Neon",
+    "tags": [
+      "music",
+      "concert",
+      "band",
+      "performance",
+      "live",
+      "neon",
+      "concert"
+    ],
+    "palette": [
+      "#0f0f0f",
+      "#1a1a2e",
+      "#e94560",
+      "#533483",
+      "#f5f5f5"
+    ],
+    "downloads": 2657
+  },
+  {
+    "title": "Album Cover Art Template",
+    "category": "Music",
+    "subcategory": "Album",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Art Deco",
+    "tags": [
+      "music",
+      "concert",
+      "band",
+      "performance",
+      "live",
+      "art deco",
+      "album"
+    ],
+    "palette": [
+      "#0f0f0f",
+      "#1a1a2e",
+      "#e94560",
+      "#533483",
+      "#f5f5f5"
+    ],
+    "downloads": 1841
+  },
+  {
+    "title": "Music Festival Lineup Poster",
+    "category": "Music",
+    "subcategory": "Festival",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": true,
+    "popular": true,
+    "style": "Bold",
+    "tags": [
+      "music",
+      "concert",
+      "band",
+      "performance",
+      "live",
+      "bold",
+      "festival"
+    ],
+    "palette": [
+      "#0f0f0f",
+      "#1a1a2e",
+      "#e94560",
+      "#533483",
+      "#f5f5f5"
+    ],
+    "downloads": 816
+  },
+  {
+    "title": "Open Mic Night Flyer",
+    "category": "Music",
+    "subcategory": "Open Mic",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Dark",
+    "tags": [
+      "music",
+      "concert",
+      "band",
+      "performance",
+      "live",
+      "dark",
+      "open mic"
+    ],
+    "palette": [
+      "#0f0f0f",
+      "#1a1a2e",
+      "#e94560",
+      "#533483",
+      "#f5f5f5"
+    ],
+    "downloads": 1872
+  },
+  {
+    "title": "DJ Mix Album Cover",
+    "category": "Music",
+    "subcategory": "Album",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Neon",
+    "tags": [
+      "music",
+      "concert",
+      "band",
+      "performance",
+      "live",
+      "neon",
+      "album"
+    ],
+    "palette": [
+      "#0f0f0f",
+      "#1a1a2e",
+      "#e94560",
+      "#533483",
+      "#f5f5f5"
+    ],
+    "downloads": 2845
+  },
+  {
+    "title": "Music Lesson Promo Poster",
+    "category": "Music",
+    "subcategory": "Lessons",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "music",
+      "concert",
+      "band",
+      "performance",
+      "live",
+      "modern",
+      "lessons"
+    ],
+    "palette": [
+      "#0f0f0f",
+      "#1a1a2e",
+      "#e94560",
+      "#533483",
+      "#f5f5f5"
+    ],
+    "downloads": 2529
+  },
+  {
+    "title": "Travel Agency Brochure",
+    "category": "Travel",
+    "subcategory": "Agency",
+    "type": "flyer",
+    "width": 1000,
+    "height": 1400,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "travel",
+      "vacation",
+      "holiday",
+      "destination",
+      "adventure",
+      "modern",
+      "agency"
+    ],
+    "palette": [
+      "#0c4a6e",
+      "#0369a1",
+      "#38bdf8",
+      "#bae6fd",
+      "#f0f9ff"
+    ],
+    "downloads": 1453
+  },
+  {
+    "title": "Vacation Rental Flyer",
+    "category": "Travel",
+    "subcategory": "Rental",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "travel",
+      "vacation",
+      "holiday",
+      "destination",
+      "adventure",
+      "minimal",
+      "rental"
+    ],
+    "palette": [
+      "#0c4a6e",
+      "#0369a1",
+      "#38bdf8",
+      "#bae6fd",
+      "#f0f9ff"
+    ],
+    "downloads": 3965
+  },
+  {
+    "title": "Flight Deal Promo Poster",
+    "category": "Travel",
+    "subcategory": "Deals",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Gradient",
+    "tags": [
+      "travel",
+      "vacation",
+      "holiday",
+      "destination",
+      "adventure",
+      "gradient",
+      "deals"
+    ],
+    "palette": [
+      "#0c4a6e",
+      "#0369a1",
+      "#38bdf8",
+      "#bae6fd",
+      "#f0f9ff"
+    ],
+    "downloads": 4414
+  },
+  {
+    "title": "Travel Instagram Story",
+    "category": "Travel",
+    "subcategory": "Social",
+    "type": "social",
+    "width": 1080,
+    "height": 1920,
+    "premium": false,
+    "popular": false,
+    "style": "Watercolor",
+    "tags": [
+      "travel",
+      "vacation",
+      "holiday",
+      "destination",
+      "adventure",
+      "watercolor",
+      "social"
+    ],
+    "palette": [
+      "#0c4a6e",
+      "#0369a1",
+      "#38bdf8",
+      "#bae6fd",
+      "#f0f9ff"
+    ],
+    "downloads": 4228
+  },
+  {
+    "title": "Passport Invitation Template",
+    "category": "Travel",
+    "subcategory": "Invitation",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Vintage",
+    "tags": [
+      "travel",
+      "vacation",
+      "holiday",
+      "destination",
+      "adventure",
+      "vintage",
+      "invitation"
+    ],
+    "palette": [
+      "#0c4a6e",
+      "#0369a1",
+      "#38bdf8",
+      "#bae6fd",
+      "#f0f9ff"
+    ],
+    "downloads": 420
+  },
+  {
+    "title": "Fashion Sale Poster",
+    "category": "Fashion",
+    "subcategory": "Sale",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Bold",
+    "tags": [
+      "fashion",
+      "style",
+      "clothing",
+      "boutique",
+      "trendy",
+      "bold",
+      "sale"
+    ],
+    "palette": [
+      "#1c1c1c",
+      "#3d3d3d",
+      "#8b5cf6",
+      "#d8b4fe",
+      "#faf5ff"
+    ],
+    "downloads": 3496
+  },
+  {
+    "title": "Lookbook Page Template",
+    "category": "Fashion",
+    "subcategory": "Lookbook",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": true,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "fashion",
+      "style",
+      "clothing",
+      "boutique",
+      "trendy",
+      "minimal",
+      "lookbook"
+    ],
+    "palette": [
+      "#1c1c1c",
+      "#3d3d3d",
+      "#8b5cf6",
+      "#d8b4fe",
+      "#faf5ff"
+    ],
+    "downloads": 3581
+  },
+  {
+    "title": "Fashion Brand Business Card",
+    "category": "Fashion",
+    "subcategory": "Branding",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "fashion",
+      "style",
+      "clothing",
+      "boutique",
+      "trendy",
+      "elegant",
+      "branding"
+    ],
+    "palette": [
+      "#1c1c1c",
+      "#3d3d3d",
+      "#8b5cf6",
+      "#d8b4fe",
+      "#faf5ff"
+    ],
+    "downloads": 2471
+  },
+  {
+    "title": "Clothing Line Tag Template",
+    "category": "Fashion",
+    "subcategory": "Tags",
+    "type": "card",
+    "width": 600,
+    "height": 900,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "fashion",
+      "style",
+      "clothing",
+      "boutique",
+      "trendy",
+      "minimal",
+      "tags"
+    ],
+    "palette": [
+      "#1c1c1c",
+      "#3d3d3d",
+      "#8b5cf6",
+      "#d8b4fe",
+      "#faf5ff"
+    ],
+    "downloads": 842
+  },
+  {
+    "title": "Fashion Week Invitation",
+    "category": "Fashion",
+    "subcategory": "Event",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Luxury",
+    "tags": [
+      "fashion",
+      "style",
+      "clothing",
+      "boutique",
+      "trendy",
+      "luxury",
+      "event"
+    ],
+    "palette": [
+      "#1c1c1c",
+      "#3d3d3d",
+      "#8b5cf6",
+      "#d8b4fe",
+      "#faf5ff"
+    ],
+    "downloads": 728
+  },
+  {
+    "title": "Tech Conference Banner",
+    "category": "Technology",
+    "subcategory": "Conference",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": false,
+    "popular": true,
+    "style": "Modern",
+    "tags": [
+      "tech",
+      "technology",
+      "software",
+      "digital",
+      "startup",
+      "modern",
+      "conference"
+    ],
+    "palette": [
+      "#020617",
+      "#0f172a",
+      "#3b82f6",
+      "#60a5fa",
+      "#eff6ff"
+    ],
+    "downloads": 1021
+  },
+  {
+    "title": "App Launch Poster",
+    "category": "Technology",
+    "subcategory": "Launch",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Neon",
+    "tags": [
+      "tech",
+      "technology",
+      "software",
+      "digital",
+      "startup",
+      "neon",
+      "launch"
+    ],
+    "palette": [
+      "#020617",
+      "#0f172a",
+      "#3b82f6",
+      "#60a5fa",
+      "#eff6ff"
+    ],
+    "downloads": 1173
+  },
+  {
+    "title": "Software Webinar Flyer",
+    "category": "Technology",
+    "subcategory": "Webinar",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Gradient",
+    "tags": [
+      "tech",
+      "technology",
+      "software",
+      "digital",
+      "startup",
+      "gradient",
+      "webinar"
+    ],
+    "palette": [
+      "#020617",
+      "#0f172a",
+      "#3b82f6",
+      "#60a5fa",
+      "#eff6ff"
+    ],
+    "downloads": 4589
+  },
+  {
+    "title": "Hackathon Event Poster",
+    "category": "Technology",
+    "subcategory": "Hackathon",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "tech",
+      "technology",
+      "software",
+      "digital",
+      "startup",
+      "bold",
+      "hackathon"
+    ],
+    "palette": [
+      "#020617",
+      "#0f172a",
+      "#3b82f6",
+      "#60a5fa",
+      "#eff6ff"
+    ],
+    "downloads": 4109
+  },
+  {
+    "title": "SaaS Product Card",
+    "category": "Technology",
+    "subcategory": "Product",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "tech",
+      "technology",
+      "software",
+      "digital",
+      "startup",
+      "modern",
+      "product"
+    ],
+    "palette": [
+      "#020617",
+      "#0f172a",
+      "#3b82f6",
+      "#60a5fa",
+      "#eff6ff"
+    ],
+    "downloads": 4402
+  },
+  {
+    "title": "Startup Pitch Deck Cover",
+    "category": "Technology",
+    "subcategory": "Pitch",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": true,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "tech",
+      "technology",
+      "software",
+      "digital",
+      "startup",
+      "corporate",
+      "pitch"
+    ],
+    "palette": [
+      "#020617",
+      "#0f172a",
+      "#3b82f6",
+      "#60a5fa",
+      "#eff6ff"
+    ],
+    "downloads": 801
+  },
+  {
+    "title": "For Sale Property Flyer",
+    "category": "Real Estate",
+    "subcategory": "For Sale",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": true,
+    "style": "Modern",
+    "tags": [
+      "real estate",
+      "property",
+      "housing",
+      "realtor",
+      "home",
+      "modern",
+      "for sale"
+    ],
+    "palette": [
+      "#1a2332",
+      "#2d3a4a",
+      "#8b7355",
+      "#c4a97a",
+      "#f5efe6"
+    ],
+    "downloads": 2910
+  },
+  {
+    "title": "Open House Invitation",
+    "category": "Real Estate",
+    "subcategory": "Open House",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "real estate",
+      "property",
+      "housing",
+      "realtor",
+      "home",
+      "elegant",
+      "open house"
+    ],
+    "palette": [
+      "#1a2332",
+      "#2d3a4a",
+      "#8b7355",
+      "#c4a97a",
+      "#f5efe6"
+    ],
+    "downloads": 4639
+  },
+  {
+    "title": "Real Estate Business Card",
+    "category": "Real Estate",
+    "subcategory": "Branding",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "real estate",
+      "property",
+      "housing",
+      "realtor",
+      "home",
+      "corporate",
+      "branding"
+    ],
+    "palette": [
+      "#1a2332",
+      "#2d3a4a",
+      "#8b7355",
+      "#c4a97a",
+      "#f5efe6"
+    ],
+    "downloads": 3699
+  },
+  {
+    "title": "Property Listing Social Post",
+    "category": "Real Estate",
+    "subcategory": "Social",
+    "type": "social",
+    "width": 1080,
+    "height": 1080,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "real estate",
+      "property",
+      "housing",
+      "realtor",
+      "home",
+      "minimal",
+      "social"
+    ],
+    "palette": [
+      "#1a2332",
+      "#2d3a4a",
+      "#8b7355",
+      "#c4a97a",
+      "#f5efe6"
+    ],
+    "downloads": 633
+  },
+  {
+    "title": "Luxury Property Brochure",
+    "category": "Real Estate",
+    "subcategory": "Luxury",
+    "type": "flyer",
+    "width": 1000,
+    "height": 1400,
+    "premium": true,
+    "popular": false,
+    "style": "Luxury",
+    "tags": [
+      "real estate",
+      "property",
+      "housing",
+      "realtor",
+      "home",
+      "luxury",
+      "luxury"
+    ],
+    "palette": [
+      "#1a2332",
+      "#2d3a4a",
+      "#8b7355",
+      "#c4a97a",
+      "#f5efe6"
+    ],
+    "downloads": 1831
+  },
+  {
+    "title": "Diwali Celebration Poster",
+    "category": "Festivals",
+    "subcategory": "Diwali",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Bold",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "bold",
+      "diwali"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 1889
+  },
+  {
+    "title": "Christmas Party Invitation",
+    "category": "Festivals",
+    "subcategory": "Christmas",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": true,
+    "style": "Classic",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "classic",
+      "christmas"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 2769
+  },
+  {
+    "title": "Eid Mubarak Greeting Card",
+    "category": "Festivals",
+    "subcategory": "Eid",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "elegant",
+      "eid"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 2154
+  },
+  {
+    "title": "New Year Party Flyer",
+    "category": "Festivals",
+    "subcategory": "New Year",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": true,
+    "style": "Neon",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "neon",
+      "new year"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 154
+  },
+  {
+    "title": "Halloween Event Poster",
+    "category": "Festivals",
+    "subcategory": "Halloween",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Dark",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "dark",
+      "halloween"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 2765
+  },
+  {
+    "title": "Holi Color Festival Banner",
+    "category": "Festivals",
+    "subcategory": "Holi",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "playful",
+      "holi"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 4745
+  },
+  {
+    "title": "Thanksgiving Dinner Menu",
+    "category": "Festivals",
+    "subcategory": "Thanksgiving",
+    "type": "card",
+    "width": 800,
+    "height": 1100,
+    "premium": false,
+    "popular": false,
+    "style": "Rustic",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "rustic",
+      "thanksgiving"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 1838
+  },
+  {
+    "title": "Hanukkah Greeting Card",
+    "category": "Festivals",
+    "subcategory": "Hanukkah",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Classic",
+    "tags": [
+      "festival",
+      "celebration",
+      "holiday",
+      "cultural",
+      "tradition",
+      "classic",
+      "hanukkah"
+    ],
+    "palette": [
+      "#dc2626",
+      "#ea580c",
+      "#f59e0b",
+      "#16a34a",
+      "#2563eb"
+    ],
+    "downloads": 3169
+  },
+  {
+    "title": "Restaurant Menu Template",
+    "category": "Food & Drink",
+    "subcategory": "Menu",
+    "type": "flyer",
+    "width": 1000,
+    "height": 1400,
+    "premium": false,
+    "popular": true,
+    "style": "Modern",
+    "tags": [
+      "food",
+      "restaurant",
+      "menu",
+      "culinary",
+      "drink",
+      "modern",
+      "menu"
+    ],
+    "palette": [
+      "#451a03",
+      "#78350f",
+      "#d97706",
+      "#fbbf24",
+      "#fef3c7"
+    ],
+    "downloads": 2089
+  },
+  {
+    "title": "Cafe Grand Opening Banner",
+    "category": "Food & Drink",
+    "subcategory": "Opening",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "food",
+      "restaurant",
+      "menu",
+      "culinary",
+      "drink",
+      "minimal",
+      "opening"
+    ],
+    "palette": [
+      "#451a03",
+      "#78350f",
+      "#d97706",
+      "#fbbf24",
+      "#fef3c7"
+    ],
+    "downloads": 4934
+  },
+  {
+    "title": "Cocktail Menu Card",
+    "category": "Food & Drink",
+    "subcategory": "Drinks",
+    "type": "card",
+    "width": 800,
+    "height": 1100,
+    "premium": false,
+    "popular": false,
+    "style": "Dark",
+    "tags": [
+      "food",
+      "restaurant",
+      "menu",
+      "culinary",
+      "drink",
+      "dark",
+      "drinks"
+    ],
+    "palette": [
+      "#451a03",
+      "#78350f",
+      "#d97706",
+      "#fbbf24",
+      "#fef3c7"
+    ],
+    "downloads": 971
+  },
+  {
+    "title": "Food Delivery Promo Poster",
+    "category": "Food & Drink",
+    "subcategory": "Promo",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "food",
+      "restaurant",
+      "menu",
+      "culinary",
+      "drink",
+      "bold",
+      "promo"
+    ],
+    "palette": [
+      "#451a03",
+      "#78350f",
+      "#d97706",
+      "#fbbf24",
+      "#fef3c7"
+    ],
+    "downloads": 2110
+  },
+  {
+    "title": "Recipe Card Template",
+    "category": "Food & Drink",
+    "subcategory": "Recipe",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Rustic",
+    "tags": [
+      "food",
+      "restaurant",
+      "menu",
+      "culinary",
+      "drink",
+      "rustic",
+      "recipe"
+    ],
+    "palette": [
+      "#451a03",
+      "#78350f",
+      "#d97706",
+      "#fbbf24",
+      "#fef3c7"
+    ],
+    "downloads": 1541
+  },
+  {
+    "title": "Bakery Price List Flyer",
+    "category": "Food & Drink",
+    "subcategory": "Bakery",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "food",
+      "restaurant",
+      "menu",
+      "culinary",
+      "drink",
+      "playful",
+      "bakery"
+    ],
+    "palette": [
+      "#451a03",
+      "#78350f",
+      "#d97706",
+      "#fbbf24",
+      "#fef3c7"
+    ],
+    "downloads": 2615
+  },
+  {
+    "title": "Gym Membership Promo Poster",
+    "category": "Fitness",
+    "subcategory": "Gym",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Bold",
+    "tags": [
+      "fitness",
+      "gym",
+      "workout",
+      "health",
+      "exercise",
+      "bold",
+      "gym"
+    ],
+    "palette": [
+      "#0f172a",
+      "#1e293b",
+      "#22c55e",
+      "#86efac",
+      "#f0fdf4"
+    ],
+    "downloads": 2340
+  },
+  {
+    "title": "Yoga Retreat Flyer",
+    "category": "Fitness",
+    "subcategory": "Yoga",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "fitness",
+      "gym",
+      "workout",
+      "health",
+      "exercise",
+      "minimal",
+      "yoga"
+    ],
+    "palette": [
+      "#0f172a",
+      "#1e293b",
+      "#22c55e",
+      "#86efac",
+      "#f0fdf4"
+    ],
+    "downloads": 4300
+  },
+  {
+    "title": "Workout Schedule Template",
+    "category": "Fitness",
+    "subcategory": "Schedule",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "fitness",
+      "gym",
+      "workout",
+      "health",
+      "exercise",
+      "modern",
+      "schedule"
+    ],
+    "palette": [
+      "#0f172a",
+      "#1e293b",
+      "#22c55e",
+      "#86efac",
+      "#f0fdf4"
+    ],
+    "downloads": 1729
+  },
+  {
+    "title": "Personal Trainer Business Card",
+    "category": "Fitness",
+    "subcategory": "Training",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Gradient",
+    "tags": [
+      "fitness",
+      "gym",
+      "workout",
+      "health",
+      "exercise",
+      "gradient",
+      "training"
+    ],
+    "palette": [
+      "#0f172a",
+      "#1e293b",
+      "#22c55e",
+      "#86efac",
+      "#f0fdf4"
+    ],
+    "downloads": 1011
+  },
+  {
+    "title": "Fitness Challenge Social Post",
+    "category": "Fitness",
+    "subcategory": "Social",
+    "type": "social",
+    "width": 1080,
+    "height": 1080,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "fitness",
+      "gym",
+      "workout",
+      "health",
+      "exercise",
+      "bold",
+      "social"
+    ],
+    "palette": [
+      "#0f172a",
+      "#1e293b",
+      "#22c55e",
+      "#86efac",
+      "#f0fdf4"
+    ],
+    "downloads": 4774
+  },
+  {
+    "title": "Salon Service Menu",
+    "category": "Beauty",
+    "subcategory": "Salon",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": true,
+    "style": "Elegant",
+    "tags": [
+      "beauty",
+      "salon",
+      "spa",
+      "cosmetics",
+      "skincare",
+      "elegant",
+      "salon"
+    ],
+    "palette": [
+      "#2e1065",
+      "#6b21a8",
+      "#c084fc",
+      "#e9d5ff",
+      "#faf5ff"
+    ],
+    "downloads": 4396
+  },
+  {
+    "title": "Makeup Brand Promo Poster",
+    "category": "Beauty",
+    "subcategory": "Makeup",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Luxury",
+    "tags": [
+      "beauty",
+      "salon",
+      "spa",
+      "cosmetics",
+      "skincare",
+      "luxury",
+      "makeup"
+    ],
+    "palette": [
+      "#2e1065",
+      "#6b21a8",
+      "#c084fc",
+      "#e9d5ff",
+      "#faf5ff"
+    ],
+    "downloads": 304
+  },
+  {
+    "title": "Nail Art Price List",
+    "category": "Beauty",
+    "subcategory": "Nails",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "beauty",
+      "salon",
+      "spa",
+      "cosmetics",
+      "skincare",
+      "playful",
+      "nails"
+    ],
+    "palette": [
+      "#2e1065",
+      "#6b21a8",
+      "#c084fc",
+      "#e9d5ff",
+      "#faf5ff"
+    ],
+    "downloads": 4725
+  },
+  {
+    "title": "Spa Gift Card Template",
+    "category": "Beauty",
+    "subcategory": "Spa",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "beauty",
+      "salon",
+      "spa",
+      "cosmetics",
+      "skincare",
+      "elegant",
+      "spa"
+    ],
+    "palette": [
+      "#2e1065",
+      "#6b21a8",
+      "#c084fc",
+      "#e9d5ff",
+      "#faf5ff"
+    ],
+    "downloads": 3613
+  },
+  {
+    "title": "Beauty Product Label",
+    "category": "Beauty",
+    "subcategory": "Product",
+    "type": "card",
+    "width": 600,
+    "height": 900,
+    "premium": true,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "beauty",
+      "salon",
+      "spa",
+      "cosmetics",
+      "skincare",
+      "minimal",
+      "product"
+    ],
+    "palette": [
+      "#2e1065",
+      "#6b21a8",
+      "#c084fc",
+      "#e9d5ff",
+      "#faf5ff"
+    ],
+    "downloads": 4111
+  },
+  {
+    "title": "Pet Adoption Flyer",
+    "category": "Pets",
+    "subcategory": "Adoption",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": true,
+    "style": "Playful",
+    "tags": [
+      "pets",
+      "animals",
+      "dogs",
+      "cats",
+      "veterinary",
+      "playful",
+      "adoption"
+    ],
+    "palette": [
+      "#422006",
+      "#78350f",
+      "#a16207",
+      "#fde047",
+      "#fefce8"
+    ],
+    "downloads": 4306
+  },
+  {
+    "title": "Dog Grooming Business Card",
+    "category": "Pets",
+    "subcategory": "Grooming",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "pets",
+      "animals",
+      "dogs",
+      "cats",
+      "veterinary",
+      "modern",
+      "grooming"
+    ],
+    "palette": [
+      "#422006",
+      "#78350f",
+      "#a16207",
+      "#fde047",
+      "#fefce8"
+    ],
+    "downloads": 2308
+  },
+  {
+    "title": "Pet Sitting Service Flyer",
+    "category": "Pets",
+    "subcategory": "Sitting",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "pets",
+      "animals",
+      "dogs",
+      "cats",
+      "veterinary",
+      "playful",
+      "sitting"
+    ],
+    "palette": [
+      "#422006",
+      "#78350f",
+      "#a16207",
+      "#fde047",
+      "#fefce8"
+    ],
+    "downloads": 1492
+  },
+  {
+    "title": "Pet Birthday Party Invitation",
+    "category": "Pets",
+    "subcategory": "Party",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "pets",
+      "animals",
+      "dogs",
+      "cats",
+      "veterinary",
+      "playful",
+      "party"
+    ],
+    "palette": [
+      "#422006",
+      "#78350f",
+      "#a16207",
+      "#fde047",
+      "#fefce8"
+    ],
+    "downloads": 491
+  },
+  {
+    "title": "Veterinary Clinic Poster",
+    "category": "Pets",
+    "subcategory": "Vet",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "pets",
+      "animals",
+      "dogs",
+      "cats",
+      "veterinary",
+      "minimal",
+      "vet"
+    ],
+    "palette": [
+      "#422006",
+      "#78350f",
+      "#a16207",
+      "#fde047",
+      "#fefce8"
+    ],
+    "downloads": 1423
+  },
+  {
+    "title": "Sports Tournament Bracket",
+    "category": "Sports",
+    "subcategory": "Tournament",
+    "type": "poster",
+    "width": 2000,
+    "height": 1400,
+    "premium": false,
+    "popular": true,
+    "style": "Bold",
+    "tags": [
+      "sports",
+      "athletic",
+      "team",
+      "game",
+      "competition",
+      "bold",
+      "tournament"
+    ],
+    "palette": [
+      "#1e293b",
+      "#334155",
+      "#ef4444",
+      "#f87171",
+      "#fef2f2"
+    ],
+    "downloads": 4986
+  },
+  {
+    "title": "Team Roster Template",
+    "category": "Sports",
+    "subcategory": "Team",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "sports",
+      "athletic",
+      "team",
+      "game",
+      "competition",
+      "modern",
+      "team"
+    ],
+    "palette": [
+      "#1e293b",
+      "#334155",
+      "#ef4444",
+      "#f87171",
+      "#fef2f2"
+    ],
+    "downloads": 4631
+  },
+  {
+    "title": "Sports Event Ticket Template",
+    "category": "Sports",
+    "subcategory": "Tickets",
+    "type": "card",
+    "width": 1800,
+    "height": 800,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "sports",
+      "athletic",
+      "team",
+      "game",
+      "competition",
+      "bold",
+      "tickets"
+    ],
+    "palette": [
+      "#1e293b",
+      "#334155",
+      "#ef4444",
+      "#f87171",
+      "#fef2f2"
+    ],
+    "downloads": 3466
+  },
+  {
+    "title": "Tryout Announcement Poster",
+    "category": "Sports",
+    "subcategory": "Tryouts",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "sports",
+      "athletic",
+      "team",
+      "game",
+      "competition",
+      "corporate",
+      "tryouts"
+    ],
+    "palette": [
+      "#1e293b",
+      "#334155",
+      "#ef4444",
+      "#f87171",
+      "#fef2f2"
+    ],
+    "downloads": 3220
+  },
+  {
+    "title": "Championship Banner",
+    "category": "Sports",
+    "subcategory": "Championship",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": true,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "sports",
+      "athletic",
+      "team",
+      "game",
+      "competition",
+      "bold",
+      "championship"
+    ],
+    "palette": [
+      "#1e293b",
+      "#334155",
+      "#ef4444",
+      "#f87171",
+      "#fef2f2"
+    ],
+    "downloads": 745
+  },
+  {
+    "title": "Wellness Workshop Flyer",
+    "category": "Health & Wellness",
+    "subcategory": "Workshop",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "health",
+      "wellness",
+      "medical",
+      "wellbeing",
+      "care",
+      "minimal",
+      "workshop"
+    ],
+    "palette": [
+      "#064e3b",
+      "#047857",
+      "#34d399",
+      "#a7f3d0",
+      "#ecfdf5"
+    ],
+    "downloads": 1782
+  },
+  {
+    "title": "Medical Conference Poster",
+    "category": "Health & Wellness",
+    "subcategory": "Conference",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "health",
+      "wellness",
+      "medical",
+      "wellbeing",
+      "care",
+      "corporate",
+      "conference"
+    ],
+    "palette": [
+      "#064e3b",
+      "#047857",
+      "#34d399",
+      "#a7f3d0",
+      "#ecfdf5"
+    ],
+    "downloads": 462
+  },
+  {
+    "title": "Health Awareness Social Post",
+    "category": "Health & Wellness",
+    "subcategory": "Awareness",
+    "type": "social",
+    "width": 1080,
+    "height": 1080,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "health",
+      "wellness",
+      "medical",
+      "wellbeing",
+      "care",
+      "modern",
+      "awareness"
+    ],
+    "palette": [
+      "#064e3b",
+      "#047857",
+      "#34d399",
+      "#a7f3d0",
+      "#ecfdf5"
+    ],
+    "downloads": 597
+  },
+  {
+    "title": "Pharmacy Promo Flyer",
+    "category": "Health & Wellness",
+    "subcategory": "Pharmacy",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Gradient",
+    "tags": [
+      "health",
+      "wellness",
+      "medical",
+      "wellbeing",
+      "care",
+      "gradient",
+      "pharmacy"
+    ],
+    "palette": [
+      "#064e3b",
+      "#047857",
+      "#34d399",
+      "#a7f3d0",
+      "#ecfdf5"
+    ],
+    "downloads": 1695
+  },
+  {
+    "title": "Mental Health Poster Template",
+    "category": "Health & Wellness",
+    "subcategory": "Mental Health",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Minimal",
+    "tags": [
+      "health",
+      "wellness",
+      "medical",
+      "wellbeing",
+      "care",
+      "minimal",
+      "mental health"
+    ],
+    "palette": [
+      "#064e3b",
+      "#047857",
+      "#34d399",
+      "#a7f3d0",
+      "#ecfdf5"
+    ],
+    "downloads": 4544
+  },
+  {
+    "title": "Fundraising Campaign Poster",
+    "category": "Nonprofit",
+    "subcategory": "Fundraising",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Modern",
+    "tags": [
+      "nonprofit",
+      "charity",
+      "volunteer",
+      "donation",
+      "community",
+      "modern",
+      "fundraising"
+    ],
+    "palette": [
+      "#1c1917",
+      "#292524",
+      "#d97706",
+      "#fbbf24",
+      "#fefce8"
+    ],
+    "downloads": 4199
+  },
+  {
+    "title": "Volunteer Recruitment Flyer",
+    "category": "Nonprofit",
+    "subcategory": "Volunteer",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Playful",
+    "tags": [
+      "nonprofit",
+      "charity",
+      "volunteer",
+      "donation",
+      "community",
+      "playful",
+      "volunteer"
+    ],
+    "palette": [
+      "#1c1917",
+      "#292524",
+      "#d97706",
+      "#fbbf24",
+      "#fefce8"
+    ],
+    "downloads": 2419
+  },
+  {
+    "title": "Charity Event Invitation",
+    "category": "Nonprofit",
+    "subcategory": "Event",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "nonprofit",
+      "charity",
+      "volunteer",
+      "donation",
+      "community",
+      "elegant",
+      "event"
+    ],
+    "palette": [
+      "#1c1917",
+      "#292524",
+      "#d97706",
+      "#fbbf24",
+      "#fefce8"
+    ],
+    "downloads": 2935
+  },
+  {
+    "title": "Donation Thank You Card",
+    "category": "Nonprofit",
+    "subcategory": "Donation",
+    "type": "card",
+    "width": 1000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Classic",
+    "tags": [
+      "nonprofit",
+      "charity",
+      "volunteer",
+      "donation",
+      "community",
+      "classic",
+      "donation"
+    ],
+    "palette": [
+      "#1c1917",
+      "#292524",
+      "#d97706",
+      "#fbbf24",
+      "#fefce8"
+    ],
+    "downloads": 2968
+  },
+  {
+    "title": "Photography Portfolio Flyer",
+    "category": "Photography",
+    "subcategory": "Portfolio",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Minimal",
+    "tags": [
+      "photography",
+      "photos",
+      "camera",
+      "portfolio",
+      "session",
+      "minimal",
+      "portfolio"
+    ],
+    "palette": [
+      "#18181b",
+      "#27272a",
+      "#52525b",
+      "#a1a1aa",
+      "#f4f4f5"
+    ],
+    "downloads": 1637
+  },
+  {
+    "title": "Photo Session Price List",
+    "category": "Photography",
+    "subcategory": "Pricing",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Elegant",
+    "tags": [
+      "photography",
+      "photos",
+      "camera",
+      "portfolio",
+      "session",
+      "elegant",
+      "pricing"
+    ],
+    "palette": [
+      "#18181b",
+      "#27272a",
+      "#52525b",
+      "#a1a1aa",
+      "#f4f4f5"
+    ],
+    "downloads": 943
+  },
+  {
+    "title": "Photography Business Card",
+    "category": "Photography",
+    "subcategory": "Branding",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": true,
+    "style": "Modern",
+    "tags": [
+      "photography",
+      "photos",
+      "camera",
+      "portfolio",
+      "session",
+      "modern",
+      "branding"
+    ],
+    "palette": [
+      "#18181b",
+      "#27272a",
+      "#52525b",
+      "#a1a1aa",
+      "#f4f4f5"
+    ],
+    "downloads": 1409
+  },
+  {
+    "title": "Photo Gallery Invitation",
+    "category": "Photography",
+    "subcategory": "Exhibition",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Dark",
+    "tags": [
+      "photography",
+      "photos",
+      "camera",
+      "portfolio",
+      "session",
+      "dark",
+      "exhibition"
+    ],
+    "palette": [
+      "#18181b",
+      "#27272a",
+      "#52525b",
+      "#a1a1aa",
+      "#f4f4f5"
+    ],
+    "downloads": 1800
+  },
+  {
+    "title": "Car Wash Promo Flyer",
+    "category": "Automotive",
+    "subcategory": "Car Wash",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "automotive",
+      "cars",
+      "vehicles",
+      "auto",
+      "repair",
+      "bold",
+      "car wash"
+    ],
+    "palette": [
+      "#0a0a0a",
+      "#1f2937",
+      "#6b7280",
+      "#9ca3af",
+      "#f3f4f6"
+    ],
+    "downloads": 3261
+  },
+  {
+    "title": "Auto Repair Service Poster",
+    "category": "Automotive",
+    "subcategory": "Repair",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Corporate",
+    "tags": [
+      "automotive",
+      "cars",
+      "vehicles",
+      "auto",
+      "repair",
+      "corporate",
+      "repair"
+    ],
+    "palette": [
+      "#0a0a0a",
+      "#1f2937",
+      "#6b7280",
+      "#9ca3af",
+      "#f3f4f6"
+    ],
+    "downloads": 2223
+  },
+  {
+    "title": "Car Sale Event Banner",
+    "category": "Automotive",
+    "subcategory": "Sales",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": false,
+    "popular": true,
+    "style": "Bold",
+    "tags": [
+      "automotive",
+      "cars",
+      "vehicles",
+      "auto",
+      "repair",
+      "bold",
+      "sales"
+    ],
+    "palette": [
+      "#0a0a0a",
+      "#1f2937",
+      "#6b7280",
+      "#9ca3af",
+      "#f3f4f6"
+    ],
+    "downloads": 1159
+  },
+  {
+    "title": "Detailing Service Price Card",
+    "category": "Automotive",
+    "subcategory": "Detailing",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Modern",
+    "tags": [
+      "automotive",
+      "cars",
+      "vehicles",
+      "auto",
+      "repair",
+      "modern",
+      "detailing"
+    ],
+    "palette": [
+      "#0a0a0a",
+      "#1f2937",
+      "#6b7280",
+      "#9ca3af",
+      "#f3f4f6"
+    ],
+    "downloads": 4222
+  },
+  {
+    "title": "Nature Conservation Poster",
+    "category": "Nature",
+    "subcategory": "Conservation",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Watercolor",
+    "tags": [
+      "nature",
+      "outdoor",
+      "environment",
+      "garden",
+      "landscape",
+      "watercolor",
+      "conservation"
+    ],
+    "palette": [
+      "#052e16",
+      "#166534",
+      "#22c55e",
+      "#bbf7d0",
+      "#f0fdf4"
+    ],
+    "downloads": 3103
+  },
+  {
+    "title": "Garden Club Flyer",
+    "category": "Nature",
+    "subcategory": "Gardening",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Rustic",
+    "tags": [
+      "nature",
+      "outdoor",
+      "environment",
+      "garden",
+      "landscape",
+      "rustic",
+      "gardening"
+    ],
+    "palette": [
+      "#052e16",
+      "#166534",
+      "#22c55e",
+      "#bbf7d0",
+      "#f0fdf4"
+    ],
+    "downloads": 4155
+  },
+  {
+    "title": "Outdoor Adventure Banner",
+    "category": "Nature",
+    "subcategory": "Adventure",
+    "type": "banner",
+    "width": 2000,
+    "height": 1000,
+    "premium": false,
+    "popular": false,
+    "style": "Bold",
+    "tags": [
+      "nature",
+      "outdoor",
+      "environment",
+      "garden",
+      "landscape",
+      "bold",
+      "adventure"
+    ],
+    "palette": [
+      "#052e16",
+      "#166534",
+      "#22c55e",
+      "#bbf7d0",
+      "#f0fdf4"
+    ],
+    "downloads": 1913
+  },
+  {
+    "title": "Botanical Event Invitation",
+    "category": "Nature",
+    "subcategory": "Event",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": true,
+    "popular": false,
+    "style": "Watercolor",
+    "tags": [
+      "nature",
+      "outdoor",
+      "environment",
+      "garden",
+      "landscape",
+      "watercolor",
+      "event"
+    ],
+    "palette": [
+      "#052e16",
+      "#166534",
+      "#22c55e",
+      "#bbf7d0",
+      "#f0fdf4"
+    ],
+    "downloads": 2280
+  },
+  {
+    "title": "Art Exhibition Poster",
+    "category": "Art & Creative",
+    "subcategory": "Exhibition",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": true,
+    "style": "Art Deco",
+    "tags": [
+      "art",
+      "creative",
+      "design",
+      "artist",
+      "craft",
+      "art deco",
+      "exhibition"
+    ],
+    "palette": [
+      "#2d1b69",
+      "#5b21b6",
+      "#8b5cf6",
+      "#c4b5fd",
+      "#f5f3ff"
+    ],
+    "downloads": 1319
+  },
+  {
+    "title": "Creative Workshop Flyer",
+    "category": "Art & Creative",
+    "subcategory": "Workshop",
+    "type": "flyer",
+    "width": 1600,
+    "height": 1200,
+    "premium": false,
+    "popular": false,
+    "style": "Hand-drawn",
+    "tags": [
+      "art",
+      "creative",
+      "design",
+      "artist",
+      "craft",
+      "hand-drawn",
+      "workshop"
+    ],
+    "palette": [
+      "#2d1b69",
+      "#5b21b6",
+      "#8b5cf6",
+      "#c4b5fd",
+      "#f5f3ff"
+    ],
+    "downloads": 1856
+  },
+  {
+    "title": "Artist Business Card",
+    "category": "Art & Creative",
+    "subcategory": "Branding",
+    "type": "card",
+    "width": 800,
+    "height": 500,
+    "premium": false,
+    "popular": false,
+    "style": "Watercolor",
+    "tags": [
+      "art",
+      "creative",
+      "design",
+      "artist",
+      "craft",
+      "watercolor",
+      "branding"
+    ],
+    "palette": [
+      "#2d1b69",
+      "#5b21b6",
+      "#8b5cf6",
+      "#c4b5fd",
+      "#f5f3ff"
+    ],
+    "downloads": 2768
+  },
+  {
+    "title": "Studio Open House Invite",
+    "category": "Art & Creative",
+    "subcategory": "Open Studio",
+    "type": "invitation",
+    "width": 1200,
+    "height": 1600,
+    "premium": false,
+    "popular": false,
+    "style": "Art Deco",
+    "tags": [
+      "art",
+      "creative",
+      "design",
+      "artist",
+      "craft",
+      "art deco",
+      "open studio"
+    ],
+    "palette": [
+      "#2d1b69",
+      "#5b21b6",
+      "#8b5cf6",
+      "#c4b5fd",
+      "#f5f3ff"
+    ],
+    "downloads": 606
+  },
+  {
+    "title": "Art Class Promo Poster",
+    "category": "Art & Creative",
+    "subcategory": "Classes",
+    "type": "poster",
+    "width": 1600,
+    "height": 2000,
+    "premium": false,
+    "popular": false,
+    "style": "Hand-drawn",
+    "tags": [
+      "art",
+      "creative",
+      "design",
+      "artist",
+      "craft",
+      "hand-drawn",
+      "classes"
+    ],
+    "palette": [
+      "#2d1b69",
+      "#5b21b6",
+      "#8b5cf6",
+      "#c4b5fd",
+      "#f5f3ff"
+    ],
+    "downloads": 1701
+  }
+]

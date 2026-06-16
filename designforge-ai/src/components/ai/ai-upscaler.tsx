@@ -1,0 +1,335 @@
+"use client";
+
+import { useState, useCallback, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import {
+  Upload,
+  ZoomIn,
+  Download,
+  Loader2,
+  ArrowLeft,
+  ArrowRight,
+  Maximize2,
+  Check,
+} from "lucide-react";
+
+const scaleOptions = [
+  { value: 2, label: "2x", description: "Standard quality" },
+  { value: 4, label: "4x", description: "Maximum quality" },
+] as const;
+
+export default function AIUpscaler() {
+  const [image, setImage] = useState<string | null>(null);
+  const [scale, setScale] = useState<number>(2);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [processedImage, setProcessedImage] = useState<string | null>(null);
+  const [showComparison, setShowComparison] = useState(false);
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [dragOver, setDragOver] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleFile = useCallback((file: File) => {
+    setError(null);
+    if (!file.type.startsWith("image/")) {
+      setError("Please upload a valid image file");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setError("Image must be under 10MB");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataUrl = e.target?.result as string;
+      setImage(dataUrl);
+      setProcessedImage(null);
+      setShowComparison(false);
+    };
+    reader.readAsDataURL(file);
+  }, []);
+
+  const handleDrop = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      setDragOver(false);
+      const file = e.dataTransfer.files[0];
+      if (file) handleFile(file);
+    },
+    [handleFile]
+  );
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOver(true);
+  }, []);
+
+  const handleDragLeave = useCallback(() => {
+    setDragOver(false);
+  }, []);
+
+  const handleUpscale = useCallback(async () => {
+    if (!image) return;
+    setIsProcessing(true);
+    setError(null);
+
+    await new Promise((r) => setTimeout(r, 3000));
+
+    setProcessedImage(image);
+    setShowComparison(true);
+    setIsProcessing(false);
+  }, [image]);
+
+  const handleSliderMove = useCallback(
+    (e: React.MouseEvent | React.TouchEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+      const pos = ((clientX - rect.left) / rect.width) * 100;
+      setSliderPosition(Math.max(0, Math.min(100, pos)));
+    },
+    []
+  );
+
+  const handleDownload = useCallback(() => {
+    if (!processedImage) return;
+    const link = document.createElement("a");
+    link.href = processedImage;
+    link.download = `upscaled-${scale}x.png`;
+    link.click();
+  }, [processedImage, scale]);
+
+  const handleReset = useCallback(() => {
+    setImage(null);
+    setProcessedImage(null);
+    setShowComparison(false);
+    setSliderPosition(50);
+    setScale(2);
+    setError(null);
+  }, []);
+
+  return (
+    <div className="w-full max-w-3xl mx-auto space-y-8">
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass">
+          <ZoomIn className="w-4 h-4 text-primary" />
+          <span className="text-sm text-muted-foreground">AI Image Upscaler</span>
+        </div>
+        <h2 className="text-3xl font-display font-bold">
+          Upscale Images with <span className="gradient-text">AI</span>
+        </h2>
+        <p className="text-muted-foreground max-w-xl mx-auto">
+          Enhance image resolution while preserving quality and detail.
+        </p>
+      </div>
+
+      <div className="glass rounded-2xl p-6">
+        {!image ? (
+          <div
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onClick={() => fileInputRef.current?.click()}
+            className={cn(
+              "border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all duration-200",
+              dragOver
+                ? "border-primary bg-primary/5"
+                : "border-border hover:border-primary/50 hover:bg-white/[0.02]"
+            )}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) handleFile(file);
+              }}
+            />
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Upload className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <p className="text-foreground font-medium">
+                  Drop image here or click to upload
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Supports PNG, JPG, WEBP - Max 10MB
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-5">
+            {error && (
+              <div className="px-4 py-3 rounded-lg bg-error/10 border border-error/30 text-error text-sm">
+                {error}
+              </div>
+            )}
+
+            {!showComparison && (
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-muted-foreground">
+                  Scale Factor
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {scaleOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() => setScale(option.value)}
+                      className={cn(
+                        "flex flex-col items-center gap-1 p-4 rounded-xl border transition-all duration-200",
+                        scale === option.value
+                          ? "border-primary bg-primary/10"
+                          : "border-border hover:border-primary/50 bg-surface"
+                      )}
+                    >
+                      <Maximize2
+                        className={cn(
+                          "w-6 h-6 transition-all duration-200",
+                          scale === option.value
+                            ? "text-primary"
+                            : "text-muted-foreground"
+                        )}
+                      />
+                      <span
+                        className={cn(
+                          "text-lg font-bold",
+                          scale === option.value
+                            ? "text-primary"
+                            : "text-foreground"
+                        )}
+                      >
+                        {option.label}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {option.description}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div
+              ref={containerRef}
+              className="relative rounded-xl overflow-hidden bg-surface aspect-square max-w-md mx-auto select-none"
+              onMouseMove={showComparison ? handleSliderMove : undefined}
+              onTouchMove={showComparison ? handleSliderMove : undefined}
+            >
+              {showComparison && processedImage ? (
+                <>
+                  <img
+                    src={processedImage}
+                    alt="Upscaled"
+                    className="absolute inset-0 w-full h-full object-contain"
+                    draggable={false}
+                  />
+                  <div
+                    className="absolute inset-0 overflow-hidden"
+                    style={{ width: `${sliderPosition}%` }}
+                  >
+                    <img
+                      src={image}
+                      alt="Original"
+                      className="absolute inset-0 w-full h-full object-contain"
+                      style={{ imageRendering: "pixelated" }}
+                      draggable={false}
+                    />
+                  </div>
+                  <div
+                    className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg cursor-ew-resize"
+                    style={{ left: `${sliderPosition}%` }}
+                  >
+                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center">
+                      <div className="flex gap-0.5">
+                        <ArrowLeft className="w-3 h-3 text-foreground" />
+                        <ArrowRight className="w-3 h-3 text-foreground" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/60 text-[10px] text-white">
+                    Original
+                  </div>
+                  <div className="absolute bottom-3 right-3 px-2 py-1 rounded bg-black/60 text-[10px] text-white">
+                    {scale}x Upscaled
+                  </div>
+                </>
+              ) : (
+                <div className="relative w-full h-full">
+                  <img
+                    src={image}
+                    alt="Uploaded"
+                    className="w-full h-full object-contain"
+                    draggable={false}
+                  />
+                  {isProcessing && (
+                    <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center gap-3">
+                      <div className="relative">
+                        <Loader2 className="w-12 h-12 animate-spin text-primary" />
+                        <ZoomIn className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                      </div>
+                      <p className="text-white text-sm font-medium">
+                        Upscaling {scale}x...
+                      </p>
+                      <div className="w-48 h-1 rounded-full bg-white/10 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
+                          animate={{ x: ["-100%", "200%"] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" as const }}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {!showComparison && (
+                <button
+                  onClick={handleUpscale}
+                  disabled={isProcessing}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-medium shadow-lg shadow-primary/25 hover:shadow-primary/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                >
+                  {isProcessing ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Upscaling...
+                    </>
+                  ) : (
+                    <>
+                      <ZoomIn className="w-4 h-4" />
+                      Upscale to {scale}x
+                    </>
+                  )}
+                </button>
+              )}
+
+              {showComparison && (
+                <button
+                  onClick={handleDownload}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-white font-medium hover:bg-primary-dark transition-all duration-200"
+                >
+                  <Download className="w-4 h-4" />
+                  Download {scale}x Image
+                </button>
+              )}
+
+              <button
+                onClick={handleReset}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-muted-foreground hover:text-foreground transition-colors text-sm"
+              >
+                {showComparison ? "New Image" : "Reset"}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
