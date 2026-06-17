@@ -26,6 +26,18 @@ export default function Canva2Stage({
   const zoom = useEditorStore((s) => s.zoom);
   const panX = useEditorStore((s) => s.panX);
   const panY = useEditorStore((s) => s.panY);
+  const [containerSize, setContainerSize] = useState({ w: 800, h: 600 });
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver((entries) => {
+      const e = entries[0];
+      setContainerSize({ w: e.contentRect.width, h: e.contentRect.height });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const canvasWidth = template?.width ?? currentProject?.width ?? 800;
   const canvasHeight = template?.height ?? currentProject?.height ?? 600;
@@ -90,10 +102,15 @@ export default function Canva2Stage({
         const el = currentProject?.elements.find((e) => e.id === textEditingId);
         if (!el || el.type !== "text") return null;
         const tp = el.properties as TextProperties;
+        const stageLeft = (containerSize.w - canvasWidth * zoom) / 2 + panX;
+        const stageTop = (containerSize.h - canvasHeight * zoom) / 2 + panY;
         return (
           <TextEditPopup
             element={el}
             textProps={tp}
+            zoom={zoom}
+            stageLeft={stageLeft}
+            stageTop={stageTop}
             onSave={(content) => { handleTextEdit(el.id, content); setTextEditingId(null); }}
             onClose={() => setTextEditingId(null)}
           />
@@ -131,13 +148,14 @@ function ElementNode({ element, onSelect, onDragEnd, onTransformEnd, onDoubleCli
   return (
     <Group
       ref={groupRef}
+      id={`node-${element.id}`}
       x={element.x} y={element.y}
       width={element.width} height={element.height}
       rotation={element.rotation} opacity={element.opacity ?? 1}
       visible={element.visible}
       draggable={!element.locked}
       onClick={onSelect} onTap={onSelect}
-      onDblClick={onDoubleClick} onDblTap={onDoubleClick}
+      onDblClick={(e) => { e.cancelBubble = true; onDoubleClick(); }} onDblTap={(e) => { e.cancelBubble = true; onDoubleClick(); }}
       onDragEnd={(e) => onDragEnd(e.target.x(), e.target.y())}
       onTransformEnd={() => {
         const n = groupRef.current;
@@ -196,16 +214,45 @@ function TransformerComponent({ stageRef, selectedId }: { stageRef: React.RefObj
   return <Transformer ref={trRef} keepRatio={false} enabledAnchors={["top-left", "top-right", "bottom-left", "bottom-right"]} borderStroke="#6366f1" borderStrokeWidth={2} anchorStroke="#6366f1" anchorFill="#fff" anchorSize={10} rotateEnabled={true} boundBoxFunc={(o, n) => (n.width < 10 || n.height < 10 ? o : n)} />;
 }
 
-function TextEditPopup({ element, textProps, onSave, onClose }: {
-  element: DesignElement; textProps: TextProperties; onSave: (c: string) => void; onClose: () => void;
+function TextEditPopup({ element, textProps, zoom, stageLeft, stageTop, onSave, onClose }: {
+  element: DesignElement; textProps: TextProperties;
+  zoom: number; stageLeft: number; stageTop: number;
+  onSave: (c: string) => void; onClose: () => void;
 }) {
   const ref = useRef<HTMLTextAreaElement>(null);
   const [val, setVal] = useState(textProps.content);
   useEffect(() => { if (ref.current) { ref.current.focus(); ref.current.select(); } }, []);
   return (
-    <textarea ref={ref} value={val} onChange={(e) => setVal(e.target.value)}
-      onBlur={() => { onSave(val); }} onKeyDown={(e) => { if (e.key === "Escape") onClose(); if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); onSave(val); onClose(); } }}
-      style={{ position: "absolute", left: element.x, top: element.y, width: element.width, height: element.height, zIndex: 9999, border: "2px solid #6366f1", outline: "none", resize: "both", padding: 8, fontFamily: textProps.fontFamily || "Inter", fontSize: textProps.fontSize || 24, fontWeight: textProps.fontWeight || 400, color: textProps.color || "#000", textAlign: textProps.textAlign || "left", lineHeight: textProps.lineHeight || 1.5, background: "rgba(255,255,255,0.95)", borderRadius: 4, boxSizing: "border-box" }}
+    <textarea
+      ref={ref}
+      value={val}
+      onChange={(e) => setVal(e.target.value)}
+      onBlur={() => { onSave(val); }}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") onClose();
+        if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); onSave(val); onClose(); }
+      }}
+      style={{
+        position: "absolute",
+        left: stageLeft + element.x * zoom,
+        top: stageTop + element.y * zoom,
+        width: element.width * zoom,
+        height: element.height * zoom,
+        zIndex: 9999,
+        border: "2px solid #6366f1",
+        outline: "none",
+        resize: "both",
+        padding: 8,
+        fontFamily: textProps.fontFamily || "Inter",
+        fontSize: (textProps.fontSize || 24) * zoom,
+        fontWeight: textProps.fontWeight || 400,
+        color: textProps.color || "#000",
+        textAlign: textProps.textAlign || "left",
+        lineHeight: textProps.lineHeight || 1.5,
+        background: "rgba(255,255,255,0.95)",
+        borderRadius: 4,
+        boxSizing: "border-box",
+      }}
     />
   );
 }

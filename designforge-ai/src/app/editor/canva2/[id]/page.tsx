@@ -224,7 +224,7 @@ function Canva2EditorPage() {
           </div>
         </div>
         <div className="flex-1 relative konva-container">
-          <Canva2Stage />
+          <Canva2Stage template={selectedTemplate} onFieldChange={handleFieldChange} />
         </div>
         <div className="w-72 glass border-l border-border flex flex-col z-30">
           <div className="flex border-b border-border">
