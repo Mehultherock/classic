@@ -116,7 +116,7 @@ function ElementNode({ element, onSelect, onDragEnd, onTransformEnd, onDoubleCli
   const [image, setImage] = useState<HTMLImageElement | null>(null);
 
   useEffect(() => {
-    if (element.type === "image" && imgProps?.src) {
+    if ((element.type === "image" || element.type === "sticker") && imgProps?.src) {
       const img = new window.Image();
       img.crossOrigin = "anonymous";
       img.onload = () => setImage(img);
@@ -161,7 +161,7 @@ function ElementNode({ element, onSelect, onDragEnd, onTransformEnd, onDoubleCli
           {...shadowCfg}
         />
       )}
-      {element.type === "image" && image && (
+      {(element.type === "image" || element.type === "sticker") && image && (
         <KonvaImage image={image} width={element.width} height={element.height} cornerRadius={imgProps?.borderRadius || 0} />
       )}
       {element.type === "shape" && shapeProps && (

@@ -13,6 +13,7 @@ import Canva2Topbar from "@/components/editor/canva2/canva-topbar";
 import TemplateGallery from "@/components/editor/canva2/template-gallery";
 import FieldPanel from "@/components/editor/canva2/field-panel";
 import LayerPanel from "@/components/editor/canva2/layer-panel";
+import AssetsPanel from "@/components/editor/canva2/assets-panel";
 import { invitationTemplates, type InvitationTemplate } from "@/data/invitation-templates";
 import type { Project, DesignElement } from "@/types";
 
@@ -35,7 +36,7 @@ function Canva2EditorPage() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"templates" | "fields">("templates");
+  const [activeTab, setActiveTab] = useState<"templates" | "fields" | "assets">("templates");
   const [rightTab, setRightTab] = useState<"properties" | "layers">("properties");
   const [selectedTemplate, setSelectedTemplate] = useState<InvitationTemplate | null>(null);
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
@@ -210,10 +211,13 @@ function Canva2EditorPage() {
           <div className="flex border-b border-border">
             <button className={`flex-1 h-9 text-xs font-medium flex items-center justify-center transition-all ${activeTab === "templates" ? "text-foreground border-b-2 border-primary" : "text-muted-foreground hover:text-foreground"}`} onClick={() => setActiveTab("templates")}>Templates</button>
             <button className={`flex-1 h-9 text-xs font-medium flex items-center justify-center transition-all ${activeTab === "fields" ? "text-foreground border-b-2 border-primary" : "text-muted-foreground hover:text-foreground"}`} onClick={() => setActiveTab("fields")}>Fields</button>
+            <button className={`flex-1 h-9 text-xs font-medium flex items-center justify-center transition-all ${activeTab === "assets" ? "text-foreground border-b-2 border-primary" : "text-muted-foreground hover:text-foreground"}`} onClick={() => setActiveTab("assets")}>Assets</button>
           </div>
           <div className="flex-1 overflow-hidden">
             {activeTab === "templates" ? (
               <TemplateGallery onSelect={handleTemplateSelect} selectedId={selectedTemplate?.id || null} />
+            ) : activeTab === "assets" ? (
+              <AssetsPanel />
             ) : (
               <FieldPanel template={selectedTemplate} values={fieldValues} onChange={handleFieldChange} />
             )}
