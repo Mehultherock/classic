@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Search, Grid3X3, Layout } from "lucide-react";
-import { invitationTemplates, type InvitationTemplate } from "@/data/invitation-templates";
+import { invitationTemplates, templateCategories, type InvitationTemplate } from "@/data/invitation-templates";
 
-const categories = ["All", "Wedding", "Birthday", "Baby Shower", "Engagement", "Housewarming"];
+const categories = ["All", ...templateCategories];
 
 export default function TemplateGallery({
   onSelect,

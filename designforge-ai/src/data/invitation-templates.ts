@@ -6,7 +6,7 @@ export interface TemplateField {
   x: number; y: number; width: number; height: number
   fontFamily: string; fontSize: number; fontWeight: number
   color: string; textAlign: "left" | "center" | "right"
-  editable: boolean
+  editable: boolean; letterSpacing?: number
 }
 
 export interface TemplateDecoration {
@@ -21,463 +21,385 @@ export interface TemplateDecoration {
 export interface InvitationTemplate {
   id: string
   name: string
-  category: "Wedding" | "Birthday" | "Baby Shower" | "Engagement" | "Housewarming"
+  category: string
   thumbnail: string
+  premium: boolean
+  style: string
+  orientation: "portrait" | "landscape" | "square"
   background: { type: "color" | "gradient" | "image"; value: string }
   width: number
   height: number
   fields: TemplateField[]
   decorations: TemplateDecoration[]
+  colors: { primary: string; secondary: string; accent: string }
+  aiPrompt: string
 }
 
-export const invitationTemplates: InvitationTemplate[] = [
-  // ========== WEDDING (4) ==========
-  {
-    id: "wedding-elegant",
-    name: "Elegant Wedding",
-    category: "Wedding",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Sarah & James", type: "text", x: 80, y: 100, width: 640, height: 80, fontFamily: "Playfair Display", fontSize: 52, fontWeight: 700, color: "#be185d", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Together with their families", type: "text", x: 100, y: 190, width: 600, height: 36, fontFamily: "Inter", fontSize: 16, fontWeight: 400, color: "#9d174d", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, 15 August 2026", type: "text", x: 150, y: 280, width: 500, height: 40, fontFamily: "Playfair Display", fontSize: 22, fontWeight: 500, color: "#831843", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "5:00 PM - 10:00 PM", type: "text", x: 150, y: 320, width: 500, height: 36, fontFamily: "Inter", fontSize: 16, fontWeight: 400, color: "#9d174d", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Grand Botanical Garden", type: "text", x: 100, y: 370, width: 600, height: 36, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#831843", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP by July 15th", type: "text", x: 200, y: 440, width: 400, height: 30, fontFamily: "Inter", fontSize: 14, fontWeight: 400, color: "#9d174d", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 350, y: 40, width: 100, height: 50, fillColor: "#ec4899", opacity: 0.3 },
-      { type: "line", x: 100, y: 250, width: 600, height: 1, strokeColor: "#ec4899", strokeWidth: 1, opacity: 0.5 },
-      { type: "line", x: 100, y: 420, width: 600, height: 1, strokeColor: "#ec4899", strokeWidth: 1, opacity: 0.5 },
-      { type: "shape", shapeType: "circle", x: 320, y: 470, width: 8, height: 8, fillColor: "#ec4899", opacity: 0.6 },
-      { type: "shape", shapeType: "circle", x: 360, y: 470, width: 8, height: 8, fillColor: "#ec4899", opacity: 0.6 },
-      { type: "shape", shapeType: "circle", x: 400, y: 470, width: 8, height: 8, fillColor: "#ec4899", opacity: 0.6 },
-      { type: "shape", shapeType: "circle", x: 440, y: 470, width: 8, height: 8, fillColor: "#ec4899", opacity: 0.6 },
-      { type: "shape", shapeType: "circle", x: 480, y: 470, width: 8, height: 8, fillColor: "#ec4899", opacity: 0.6 },
-    ],
-  },
-  {
-    id: "wedding-rustic",
-    name: "Rustic Barn Wedding",
-    category: "Wedding",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fde68a 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Emily & Michael", type: "text", x: 60, y: 120, width: 680, height: 80, fontFamily: "Playfair Display", fontSize: 48, fontWeight: 700, color: "#92400e", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Join us for our wedding celebration", type: "text", x: 100, y: 210, width: 600, height: 30, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#b45309", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "October 1, 2026", type: "text", x: 150, y: 290, width: 500, height: 40, fontFamily: "Playfair Display", fontSize: 24, fontWeight: 600, color: "#92400e", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "3:00 PM", type: "text", x: 150, y: 330, width: 500, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 400, color: "#b45309", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Sunset Ridge Barn", type: "text", x: 100, y: 380, width: 600, height: 36, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#92400e", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Please RSVP by September 15", type: "text", x: 150, y: 450, width: 500, height: 28, fontFamily: "Inter", fontSize: 14, fontWeight: 400, color: "#b45309", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "rectangle", x: 80, y: 60, width: 640, height: 480, fillColor: "transparent", strokeColor: "#d97706", strokeWidth: 2, opacity: 0.4 },
-      { type: "shape", shapeType: "circle", x: 370, y: 85, width: 60, height: 60, fillColor: "#f59e0b", opacity: 0.15 },
-    ],
-  },
-  {
-    id: "wedding-modern",
-    name: "Modern Minimalist",
-    category: "Wedding",
-    thumbnail: "",
-    background: { type: "color", value: "#f8fafc" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "ALEX & MORGAN", type: "text", x: 80, y: 140, width: 640, height: 70, fontFamily: "Montserrat", fontSize: 44, fontWeight: 800, color: "#0f172a", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Request the honor of your presence", type: "text", x: 120, y: 220, width: 560, height: 30, fontFamily: "Inter", fontSize: 14, fontWeight: 300, color: "#64748b", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "06.12.2026", type: "text", x: 200, y: 300, width: 400, height: 40, fontFamily: "Montserrat", fontSize: 28, fontWeight: 600, color: "#0f172a", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "SIX O'CLOCK IN THE EVENING", type: "text", x: 150, y: 345, width: 500, height: 24, fontFamily: "Inter", fontSize: 12, fontWeight: 400, color: "#64748b", letterSpacing: 3, textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Skyline Loft, NYC", type: "text", x: 120, y: 400, width: 560, height: 30, fontFamily: "Montserrat", fontSize: 16, fontWeight: 500, color: "#334155", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP: morganandalex@email.com", type: "text", x: 150, y: 460, width: 500, height: 24, fontFamily: "Inter", fontSize: 12, fontWeight: 400, color: "#94a3b8", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "line", x: 150, y: 270, width: 500, height: 1, strokeColor: "#cbd5e1", strokeWidth: 1 },
-      { type: "line", x: 150, y: 440, width: 500, height: 1, strokeColor: "#cbd5e1", strokeWidth: 1 },
-    ],
-  },
-  {
-    id: "wedding-floral",
-    name: "Floral Romance",
-    category: "Wedding",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(180deg, #fdf4ff 0%, #fae8ff 40%, #f5d0fe 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Olivia & Ethan", type: "text", x: 60, y: 130, width: 680, height: 80, fontFamily: "Dancing Script", fontSize: 56, fontWeight: 700, color: "#86198f", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Together with their families, we invite you", type: "text", x: 80, y: 220, width: 640, height: 28, fontFamily: "Inter", fontSize: 14, fontWeight: 300, color: "#a21caf", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, 22nd May 2027", type: "text", x: 150, y: 300, width: 500, height: 36, fontFamily: "Playfair Display", fontSize: 22, fontWeight: 500, color: "#86198f", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "2:30 PM", type: "text", x: 320, y: 340, width: 160, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#a21caf", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Rose Garden Chapel", type: "text", x: 100, y: 390, width: 600, height: 32, fontFamily: "Playfair Display", fontSize: 18, fontWeight: 500, color: "#86198f", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Kindly RSVP by May 1st", type: "text", x: 200, y: 450, width: 400, height: 26, fontFamily: "Inter", fontSize: 13, fontWeight: 300, color: "#a21caf", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 340, y: 30, width: 120, height: 60, fillColor: "#d946ef", opacity: 0.2 },
-      { type: "shape", shapeType: "circle", x: 120, y: 100, width: 40, height: 40, fillColor: "#e879f9", opacity: 0.15 },
-      { type: "shape", shapeType: "circle", x: 640, y: 100, width: 40, height: 40, fillColor: "#e879f9", opacity: 0.15 },
-      { type: "line", x: 180, y: 270, width: 440, height: 1, strokeColor: "#d946ef", strokeWidth: 1, opacity: 0.4 },
-      { type: "line", x: 180, y: 430, width: 440, height: 1, strokeColor: "#d946ef", strokeWidth: 1, opacity: 0.4 },
-    ],
-  },
+// ─── Category color palettes ────────────────────────────────────
+const palettes: Record<string, { bg: string; grad: string; primary: string; secondary: string; accent: string; text: string; muted: string }> = {
+  Wedding:       { bg: "#fdf2f8", grad: "linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%)", primary: "#be185d", secondary: "#9d174d", accent: "#ec4899", text: "#831843", muted: "#9d174d" },
+  Birthday:      { bg: "#fff7ed", grad: "linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%)", primary: "#ea580c", secondary: "#c2410c", accent: "#f97316", text: "#9a3412", muted: "#c2410c" },
+  Engagement:    { bg: "#fdf2f8", grad: "linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fae8ff 100%)", primary: "#be185d", secondary: "#86198f", accent: "#d946ef", text: "#831843", muted: "#a21caf" },
+  Anniversary:   { bg: "#fefce8", grad: "linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fde047 100%)", primary: "#a16207", secondary: "#854d0e", accent: "#eab308", text: "#713f12", muted: "#a16207" },
+  "Baby Shower": { bg: "#f0fdf4", grad: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%)", primary: "#166534", secondary: "#15803d", accent: "#22c55e", text: "#14532d", muted: "#15803d" },
+  Housewarming:  { bg: "#fff7ed", grad: "linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%)", primary: "#c2410c", secondary: "#9a3412", accent: "#f97316", text: "#7c2d12", muted: "#9a3412" },
+  Graduation:    { bg: "#f0fdfa", grad: "linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%)", primary: "#0d9488", secondary: "#0f766e", accent: "#14b8a6", text: "#115e59", muted: "#0f766e" },
+  Corporate:     { bg: "#f8fafc", grad: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)", primary: "#1e293b", secondary: "#334155", accent: "#3b82f6", text: "#0f172a", muted: "#475569" },
+  Festival:      { bg: "#fef2f2", grad: "linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%)", primary: "#dc2626", secondary: "#b91c1c", accent: "#ef4444", text: "#991b1b", muted: "#b91c1c" },
+  Farewell:      { bg: "#f5f3ff", grad: "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #ddd6fe 100%)", primary: "#7c3aed", secondary: "#6d28d9", accent: "#8b5cf6", text: "#5b21b6", muted: "#6d28d9" },
+  Retirement:    { bg: "#fefce8", grad: "linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #fef9c3 100%)", primary: "#4d7c0f", secondary: "#3f6212", accent: "#65a30d", text: "#365314", muted: "#3f6212" },
+  Reception:     { bg: "#fdf4ff", grad: "linear-gradient(135deg, #fdf4ff 0%, #fae8ff 50%, #f5d0fe 100%)", primary: "#a21caf", secondary: "#86198f", accent: "#d946ef", text: "#701a75", muted: "#86198f" },
+  "Bridal Shower": { bg: "#fce7f3", grad: "linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%)", primary: "#db2777", secondary: "#be185d", accent: "#ec4899", text: "#9d174d", muted: "#be185d" },
+  "Kids Party":  { bg: "#fef9c3", grad: "linear-gradient(135deg, #fef9c3 0%, #fde047 50%, #facc15 100%)", primary: "#ca8a04", secondary: "#a16207", accent: "#eab308", text: "#854d0e", muted: "#a16207" },
+  Conference:    { bg: "#eff6ff", grad: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%)", primary: "#1d4ed8", secondary: "#1e40af", accent: "#3b82f6", text: "#1e3a8a", muted: "#1e40af" },
+};
 
-  // ========== BIRTHDAY (4) ==========
-  {
-    id: "birthday-kids",
-    name: "Kids Birthday Party",
-    category: "Birthday",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%)" },
+// ─── Layout presets ──────────────────────────────────────────────
+const layouts: Record<string, { fields: Partial<TemplateField>[]; decorations: TemplateDecoration[]; width: number; height: number }> = {
+  "centered-elegant": {
     width: 800, height: 600,
     fields: [
-      { id: "event-name", label: "Event Name", default: "🎉 Leo's 5th Birthday!", type: "text", x: 60, y: 100, width: 680, height: 80, fontFamily: "Fredoka One", fontSize: 48, fontWeight: 700, color: "#ea580c", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Hosted by Sarah & Mike", type: "text", x: 120, y: 190, width: 560, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#9a3412", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, June 20th", type: "text", x: 150, y: 270, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#c2410c", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "2:00 PM - 5:00 PM", type: "text", x: 150, y: 310, width: 500, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 400, color: "#9a3412", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Sunny Lane Park", type: "text", x: 150, y: 360, width: 500, height: 32, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#c2410c", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Please RSVP by June 10th", type: "text", x: 200, y: 430, width: 400, height: 26, fontFamily: "Inter", fontSize: 14, fontWeight: 400, color: "#9a3412", textAlign: "center", editable: true },
+      { id: "event-name", x: 80, y: 100, width: 640, height: 80, fontSize: 48, fontWeight: 700, textAlign: "center" },
+      { id: "host-name", x: 100, y: 195, width: 600, height: 30, fontSize: 15, fontWeight: 400, textAlign: "center" },
+      { id: "date", x: 150, y: 280, width: 500, height: 36, fontSize: 22, fontWeight: 600, textAlign: "center" },
+      { id: "time", x: 150, y: 320, width: 500, height: 28, fontSize: 15, fontWeight: 400, textAlign: "center" },
+      { id: "venue", x: 100, y: 370, width: 600, height: 30, fontSize: 18, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 150, y: 440, width: 500, height: 24, fontSize: 13, fontWeight: 400, textAlign: "center" },
     ],
     decorations: [
-      { type: "shape", shapeType: "star", x: 60, y: 60, width: 50, height: 50, fillColor: "#fbbf24", opacity: 0.6 },
-      { type: "shape", shapeType: "star", x: 690, y: 60, width: 40, height: 40, fillColor: "#f97316", opacity: 0.5 },
-      { type: "shape", shapeType: "star", x: 60, y: 490, width: 35, height: 35, fillColor: "#fb923c", opacity: 0.4 },
-      { type: "shape", shapeType: "star", x: 700, y: 490, width: 45, height: 45, fillColor: "#fbbf24", opacity: 0.5 },
-      { type: "shape", shapeType: "rectangle", x: 320, y: 470, width: 160, height: 40, fillColor: "#f97316", opacity: 0.2 },
+      { type: "line", x: 100, y: 260, width: 600, height: 1, strokeWidth: 1, opacity: 0.4 },
+      { type: "line", x: 100, y: 420, width: 600, height: 1, strokeWidth: 1, opacity: 0.4 },
     ],
   },
-  {
-    id: "birthday-18th",
-    name: "18th Birthday Bash",
-    category: "Birthday",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2e1065 100%)" },
+  "luxury-gold": {
     width: 800, height: 600,
     fields: [
-      { id: "event-name", label: "Event Name", default: "EIGHTEEN", type: "text", x: 100, y: 120, width: 600, height: 90, fontFamily: "Montserrat", fontSize: 64, fontWeight: 900, color: "#ffffff", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Jake's Birthday Bash", type: "text", x: 120, y: 220, width: 560, height: 36, fontFamily: "Inter", fontSize: 20, fontWeight: 500, color: "#a78bfa", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "FRIDAY, AUGUST 14", type: "text", x: 150, y: 300, width: 500, height: 36, fontFamily: "Montserrat", fontSize: 22, fontWeight: 700, color: "#ffffff", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "9:00 PM - LATE", type: "text", x: 200, y: 340, width: 400, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 600, color: "#a78bfa", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Club Nova, Downtown", type: "text", x: 150, y: 390, width: 500, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#c4b5fd", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Text Jake at (555) 123-4567", type: "text", x: 150, y: 450, width: 500, height: 26, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#8b5cf6", textAlign: "center", editable: true },
+      { id: "event-name", x: 80, y: 120, width: 640, height: 90, fontSize: 50, fontWeight: 700, textAlign: "center" },
+      { id: "host-name", x: 120, y: 220, width: 560, height: 30, fontSize: 16, fontWeight: 300, textAlign: "center" },
+      { id: "date", x: 150, y: 300, width: 500, height: 36, fontSize: 24, fontWeight: 500, textAlign: "center" },
+      { id: "time", x: 350, y: 340, width: 100, height: 28, fontSize: 15, fontWeight: 400, textAlign: "center" },
+      { id: "venue", x: 120, y: 390, width: 560, height: 30, fontSize: 16, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 180, y: 450, width: 440, height: 22, fontSize: 12, fontWeight: 300, textAlign: "center" },
     ],
     decorations: [
-      { type: "shape", shapeType: "star", x: 80, y: 60, width: 60, height: 60, fillColor: "#8b5cf6", opacity: 0.3 },
-      { type: "shape", shapeType: "star", x: 660, y: 60, width: 50, height: 50, fillColor: "#7c3aed", opacity: 0.3 },
-      { type: "shape", shapeType: "circle", x: 370, y: 480, width: 60, height: 60, fillColor: "#6d28d9", opacity: 0.2 },
+      { type: "shape", shapeType: "star", x: 350, y: 35, width: 100, height: 100, opacity: 0.1 },
+      { type: "line", x: 200, y: 280, width: 400, height: 1, strokeWidth: 1, opacity: 0.3 },
+      { type: "line", x: 200, y: 430, width: 400, height: 1, strokeWidth: 1, opacity: 0.3 },
     ],
   },
-  {
-    id: "birthday-surprise",
-    name: "Surprise Party",
-    category: "Birthday",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fce7f3 0%, #e0e7ff 50%, #dbeafe 100%)" },
+  "modern-minimal": {
     width: 800, height: 600,
     fields: [
-      { id: "event-name", label: "Event Name", default: "SURPRISE!", type: "text", x: 140, y: 100, width: 520, height: 90, fontFamily: "Fredoka One", fontSize: 60, fontWeight: 700, color: "#db2777", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "You're invited to Mia's surprise party!", type: "text", x: 80, y: 200, width: 640, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#831843", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, July 10th", type: "text", x: 150, y: 280, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#be185d", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "7:00 PM (SHARP!)", type: "text", x: 200, y: 320, width: 400, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 600, color: "#db2777", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Hideaway Restaurant", type: "text", x: 120, y: 370, width: 560, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#831843", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Shh! RSVP to Tom: (555) 987-6543", type: "text", x: 120, y: 440, width: 560, height: 26, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#9d174d", textAlign: "center", editable: true },
+      { id: "event-name", x: 80, y: 140, width: 640, height: 70, fontSize: 44, fontWeight: 800, textAlign: "center", letterSpacing: 2 },
+      { id: "host-name", x: 120, y: 220, width: 560, height: 30, fontSize: 14, fontWeight: 300, textAlign: "center" },
+      { id: "date", x: 200, y: 300, width: 400, height: 40, fontSize: 28, fontWeight: 600, textAlign: "center" },
+      { id: "time", x: 150, y: 345, width: 500, height: 24, fontSize: 12, fontWeight: 400, textAlign: "center", letterSpacing: 3 },
+      { id: "venue", x: 120, y: 400, width: 560, height: 30, fontSize: 16, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 150, y: 460, width: 500, height: 24, fontSize: 12, fontWeight: 400, textAlign: "center" },
     ],
     decorations: [
-      { type: "shape", shapeType: "star", x: 60, y: 50, width: 45, height: 45, fillColor: "#ec4899", opacity: 0.4 },
-      { type: "shape", shapeType: "star", x: 695, y: 50, width: 45, height: 45, fillColor: "#6366f1", opacity: 0.4 },
-      { type: "shape", shapeType: "star", x: 140, y: 490, width: 35, height: 35, fillColor: "#8b5cf6", opacity: 0.3 },
-      { type: "shape", shapeType: "star", x: 625, y: 490, width: 35, height: 35, fillColor: "#ec4899", opacity: 0.3 },
-      { type: "line", x: 120, y: 260, width: 560, height: 1, strokeColor: "#ec4899", strokeWidth: 1, opacity: 0.5 },
-      { type: "line", x: 120, y: 420, width: 560, height: 1, strokeColor: "#ec4899", strokeWidth: 1, opacity: 0.5 },
+      { type: "line", x: 150, y: 270, width: 500, height: 1, strokeWidth: 1 },
+      { type: "line", x: 150, y: 440, width: 500, height: 1, strokeWidth: 1 },
     ],
   },
-  {
-    id: "birthday-elegant",
-    name: "Elegant Birthday",
-    category: "Birthday",
-    thumbnail: "",
-    background: { type: "color", value: "#1c1917" },
+  "playful-colorful": {
     width: 800, height: 600,
     fields: [
-      { id: "event-name", label: "Event Name", default: "Golden Birthday", type: "text", x: 100, y: 130, width: 600, height: 80, fontFamily: "Playfair Display", fontSize: 50, fontWeight: 700, color: "#fbbf24", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Celebrating Victoria's 30th", type: "text", x: 120, y: 220, width: 560, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 300, color: "#d4d4d4", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "December 5, 2026", type: "text", x: 150, y: 300, width: 500, height: 36, fontFamily: "Playfair Display", fontSize: 24, fontWeight: 500, color: "#fbbf24", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "7:00 PM", type: "text", x: 350, y: 340, width: 100, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#a3a3a3", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Ritz-Carlton Ballroom", type: "text", x: 120, y: 390, width: 560, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#e5e5e5", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP to: victoria30@email.com", type: "text", x: 180, y: 450, width: 440, height: 24, fontFamily: "Inter", fontSize: 12, fontWeight: 300, color: "#78716c", textAlign: "center", editable: true },
+      { id: "event-name", x: 60, y: 100, width: 680, height: 80, fontSize: 44, fontWeight: 700, textAlign: "center" },
+      { id: "host-name", x: 120, y: 190, width: 560, height: 28, fontSize: 16, fontWeight: 500, textAlign: "center" },
+      { id: "date", x: 150, y: 270, width: 500, height: 36, fontSize: 22, fontWeight: 600, textAlign: "center" },
+      { id: "time", x: 150, y: 310, width: 500, height: 28, fontSize: 15, fontWeight: 400, textAlign: "center" },
+      { id: "venue", x: 120, y: 360, width: 560, height: 30, fontSize: 18, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 150, y: 430, width: 500, height: 24, fontSize: 13, fontWeight: 400, textAlign: "center" },
     ],
     decorations: [
-      { type: "shape", shapeType: "star", x: 350, y: 40, width: 100, height: 100, fillColor: "#fbbf24", opacity: 0.1 },
-      { type: "line", x: 200, y: 280, width: 400, height: 1, strokeColor: "#fbbf24", strokeWidth: 1, opacity: 0.3 },
-      { type: "line", x: 200, y: 430, width: 400, height: 1, strokeColor: "#fbbf24", strokeWidth: 1, opacity: 0.3 },
+      { type: "shape", shapeType: "star", x: 60, y: 50, width: 40, height: 40, opacity: 0.5 },
+      { type: "shape", shapeType: "star", x: 700, y: 50, width: 40, height: 40, opacity: 0.5 },
+      { type: "shape", shapeType: "star", x: 60, y: 490, width: 30, height: 30, opacity: 0.4 },
+      { type: "shape", shapeType: "star", x: 710, y: 490, width: 30, height: 30, opacity: 0.4 },
     ],
   },
+  "dark-premium": {
+    width: 800, height: 600,
+    fields: [
+      { id: "event-name", x: 80, y: 120, width: 640, height: 90, fontSize: 52, fontWeight: 900, textAlign: "center" },
+      { id: "host-name", x: 120, y: 220, width: 560, height: 36, fontSize: 18, fontWeight: 500, textAlign: "center" },
+      { id: "date", x: 150, y: 300, width: 500, height: 36, fontSize: 22, fontWeight: 700, textAlign: "center" },
+      { id: "time", x: 200, y: 340, width: 400, height: 30, fontSize: 16, fontWeight: 600, textAlign: "center" },
+      { id: "venue", x: 150, y: 390, width: 500, height: 30, fontSize: 18, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 150, y: 450, width: 500, height: 24, fontSize: 13, fontWeight: 400, textAlign: "center" },
+    ],
+    decorations: [
+      { type: "shape", shapeType: "star", x: 80, y: 60, width: 50, height: 50, opacity: 0.3 },
+      { type: "shape", shapeType: "star", x: 670, y: 60, width: 50, height: 50, opacity: 0.3 },
+      { type: "shape", shapeType: "circle", x: 370, y: 480, width: 60, height: 60, opacity: 0.2 },
+    ],
+  },
+  "flower-frame": {
+    width: 800, height: 600,
+    fields: [
+      { id: "event-name", x: 60, y: 130, width: 680, height: 80, fontSize: 48, fontWeight: 700, textAlign: "center" },
+      { id: "host-name", x: 80, y: 220, width: 640, height: 28, fontSize: 14, fontWeight: 300, textAlign: "center" },
+      { id: "date", x: 150, y: 300, width: 500, height: 36, fontSize: 22, fontWeight: 500, textAlign: "center" },
+      { id: "time", x: 320, y: 340, width: 160, height: 28, fontSize: 15, fontWeight: 400, textAlign: "center" },
+      { id: "venue", x: 100, y: 390, width: 600, height: 32, fontSize: 18, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 200, y: 450, width: 400, height: 24, fontSize: 13, fontWeight: 300, textAlign: "center" },
+    ],
+    decorations: [
+      { type: "shape", shapeType: "heart", x: 340, y: 30, width: 120, height: 60, opacity: 0.2 },
+      { type: "shape", shapeType: "circle", x: 120, y: 100, width: 40, height: 40, opacity: 0.15 },
+      { type: "shape", shapeType: "circle", x: 640, y: 100, width: 40, height: 40, opacity: 0.15 },
+      { type: "line", x: 180, y: 270, width: 440, height: 1, strokeWidth: 1, opacity: 0.4 },
+      { type: "line", x: 180, y: 430, width: 440, height: 1, strokeWidth: 1, opacity: 0.4 },
+    ],
+  },
+  "portrait-simple": {
+    width: 600, height: 800,
+    fields: [
+      { id: "event-name", x: 40, y: 180, width: 520, height: 80, fontSize: 40, fontWeight: 700, textAlign: "center" },
+      { id: "host-name", x: 60, y: 270, width: 480, height: 30, fontSize: 14, fontWeight: 400, textAlign: "center" },
+      { id: "date", x: 100, y: 360, width: 400, height: 36, fontSize: 20, fontWeight: 600, textAlign: "center" },
+      { id: "time", x: 100, y: 400, width: 400, height: 28, fontSize: 14, fontWeight: 400, textAlign: "center" },
+      { id: "venue", x: 60, y: 460, width: 480, height: 30, fontSize: 16, fontWeight: 500, textAlign: "center" },
+      { id: "rsvp", x: 80, y: 540, width: 440, height: 24, fontSize: 12, fontWeight: 400, textAlign: "center" },
+    ],
+    decorations: [
+      { type: "line", x: 80, y: 340, width: 440, height: 1, strokeWidth: 1, opacity: 0.4 },
+      { type: "line", x: 80, y: 520, width: 440, height: 1, strokeWidth: 1, opacity: 0.4 },
+    ],
+  },
+};
 
-  // ========== BABY SHOWER (4) ==========
-  {
-    id: "baby-shower-classic",
-    name: "Classic Baby Shower",
-    category: "Baby Shower",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Welcome Baby!", type: "text", x: 100, y: 100, width: 600, height: 80, fontFamily: "Playfair Display", fontSize: 48, fontWeight: 700, color: "#166534", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Shower for Jessica & Mark", type: "text", x: 120, y: 190, width: 560, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#15803d", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Sunday, August 8th", type: "text", x: 150, y: 270, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#166534", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "2:00 PM - 5:00 PM", type: "text", x: 150, y: 310, width: 500, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#15803d", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Johnson Residence", type: "text", x: 150, y: 360, width: 500, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#166534", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Please RSVP by August 1st", type: "text", x: 200, y: 430, width: 400, height: 26, fontFamily: "Inter", fontSize: 14, fontWeight: 400, color: "#15803d", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 330, y: 40, width: 140, height: 50, fillColor: "#22c55e", opacity: 0.2 },
-      { type: "shape", shapeType: "heart", x: 100, y: 480, width: 50, height: 30, fillColor: "#4ade80", opacity: 0.3 },
-      { type: "shape", shapeType: "heart", x: 650, y: 480, width: 50, height: 30, fillColor: "#4ade80", opacity: 0.3 },
-      { type: "line", x: 100, y: 250, width: 600, height: 1, strokeColor: "#4ade80", strokeWidth: 1, opacity: 0.5 },
-      { type: "line", x: 100, y: 410, width: 600, height: 1, strokeColor: "#4ade80", strokeWidth: 1, opacity: 0.5 },
-    ],
-  },
-  {
-    id: "baby-shower-gender",
-    name: "Gender Reveal",
-    category: "Baby Shower",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fdf2f8 0%, #e0e7ff 50%, #fce7f3 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "👶 Baby or Girl?", type: "text", x: 80, y: 110, width: 640, height: 80, fontFamily: "Fredoka One", fontSize: 44, fontWeight: 700, color: "#7c3aed", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Hosted by The Thompson Family", type: "text", x: 120, y: 200, width: 560, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 500, color: "#6d28d9", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, September 25th", type: "text", x: 150, y: 280, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#7c3aed", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "3:00 PM", type: "text", x: 350, y: 320, width: 100, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 400, color: "#8b5cf6", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Thompson Backyard", type: "text", x: 150, y: 370, width: 500, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#6d28d9", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP: babyguest@email.com", type: "text", x: 200, y: 440, width: 400, height: 24, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#7c3aed", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 350, y: 30, width: 100, height: 50, fillColor: "#ec4899", opacity: 0.2 },
-      { type: "shape", shapeType: "star", x: 250, y: 30, width: 40, height: 40, fillColor: "#6366f1", opacity: 0.2 },
-      { type: "shape", shapeType: "star", x: 510, y: 30, width: 40, height: 40, fillColor: "#ec4899", opacity: 0.2 },
-      { type: "shape", shapeType: "circle", x: 330, y: 470, width: 140, height: 60, fillColor: "transparent", strokeColor: "#8b5cf6", strokeWidth: 2, opacity: 0.3 },
-    ],
-  },
-  {
-    id: "baby-shower-woodland",
-    name: "Woodland Theme",
-    category: "Baby Shower",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #f0fdf4 0%, #fef3c7 50%, #fef9c3 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Little Explorer", type: "text", x: 100, y: 120, width: 600, height: 80, fontFamily: "Playfair Display", fontSize: 46, fontWeight: 700, color: "#92400e", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Baby Shower for Amelia", type: "text", x: 140, y: 210, width: 520, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 500, color: "#b45309", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "October 10, 2026", type: "text", x: 180, y: 290, width: 440, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#92400e", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "11:00 AM - 2:00 PM", type: "text", x: 180, y: 330, width: 440, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#b45309", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Pine Grove Community Center", type: "text", x: 100, y: 380, width: 600, height: 30, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#92400e", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP by October 1st", type: "text", x: 250, y: 440, width: 300, height: 26, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#a16207", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "circle", x: 80, y: 80, width: 60, height: 60, fillColor: "#f59e0b", opacity: 0.15 },
-      { type: "shape", shapeType: "circle", x: 660, y: 80, width: 50, height: 50, fillColor: "#84cc16", opacity: 0.15 },
-      { type: "shape", shapeType: "circle", x: 80, y: 470, width: 40, height: 40, fillColor: "#22c55e", opacity: 0.15 },
-      { type: "shape", shapeType: "circle", x: 680, y: 470, width: 45, height: 45, fillColor: "#f59e0b", opacity: 0.15 },
-    ],
-  },
-  {
-    id: "baby-shower-twins",
-    name: "Twins Celebration",
-    category: "Baby Shower",
-    thumbnail: "",
-    background: { type: "color", value: "#fdf4ff" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Double the Love", type: "text", x: 100, y: 110, width: 600, height: 80, fontFamily: "Playfair Display", fontSize: 48, fontWeight: 700, color: "#a21caf", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Celebrating Sarah & Tom's twins", type: "text", x: 120, y: 200, width: 560, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 500, color: "#86198f", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "November 14, 2026", type: "text", x: 180, y: 280, width: 440, height: 36, fontFamily: "Playfair Display", fontSize: 22, fontWeight: 600, color: "#a21caf", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "1:00 PM - 4:00 PM", type: "text", x: 180, y: 320, width: 440, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#86198f", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Garden Pavilion", type: "text", x: 200, y: 370, width: 400, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#a21caf", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP to: doublelove@email.com", type: "text", x: 200, y: 440, width: 400, height: 24, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#c026d3", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 270, y: 40, width: 70, height: 40, fillColor: "#d946ef", opacity: 0.25 },
-      { type: "shape", shapeType: "heart", x: 460, y: 40, width: 70, height: 40, fillColor: "#e879f9", opacity: 0.25 },
-      { type: "line", x: 120, y: 260, width: 560, height: 1, strokeColor: "#d946ef", strokeWidth: 1, opacity: 0.4 },
-      { type: "line", x: 120, y: 420, width: 560, height: 1, strokeColor: "#d946ef", strokeWidth: 1, opacity: 0.4 },
-    ],
-  },
+// ─── Font pairs ──────────────────────────────────────────────────
+const fonts = [
+  { display: "Playfair Display", body: "Inter" },
+  { display: "Montserrat", body: "Inter" },
+  { display: "Dancing Script", body: "Playfair Display" },
+  { display: "Fredoka One", body: "Inter" },
+  { display: "Poppins", body: "Open Sans" },
+  { display: "Lobster", body: "Roboto" },
+  { display: "Merriweather", body: "Inter" },
+  { display: "Raleway", body: "Lato" },
+];
 
-  // ========== ENGAGEMENT (4) ==========
-  {
-    id: "engagement-classic",
-    name: "Classic Engagement",
-    category: "Engagement",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fae8ff 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "We're Engaged!", type: "text", x: 80, y: 100, width: 640, height: 80, fontFamily: "Playfair Display", fontSize: 52, fontWeight: 700, color: "#be185d", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Rachel & David", type: "text", x: 120, y: 190, width: 560, height: 40, fontFamily: "Playfair Display", fontSize: 28, fontWeight: 600, color: "#9d174d", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Engagement Party: June 26th", type: "text", x: 150, y: 280, width: 500, height: 36, fontFamily: "Inter", fontSize: 20, fontWeight: 500, color: "#831843", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "6:00 PM - 9:00 PM", type: "text", x: 150, y: 320, width: 500, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#9d174d", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Rooftop Lounge", type: "text", x: 200, y: 370, width: 400, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#831843", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP by June 15th", type: "text", x: 250, y: 440, width: 300, height: 24, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#9d174d", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 200, y: 40, width: 50, height: 30, fillColor: "#f43f5e", opacity: 0.3 },
-      { type: "shape", shapeType: "heart", x: 400, y: 40, width: 50, height: 30, fillColor: "#ec4899", opacity: 0.3 },
-      { type: "shape", shapeType: "heart", x: 550, y: 40, width: 50, height: 30, fillColor: "#f43f5e", opacity: 0.3 },
-      { type: "shape", shapeType: "circle", x: 370, y: 470, width: 60, height: 60, fillColor: "transparent", strokeColor: "#ec4899", strokeWidth: 2, opacity: 0.3 },
-    ],
-  },
-  {
-    id: "engagement-modern",
-    name: "Modern Love",
-    category: "Engagement",
-    thumbnail: "",
-    background: { type: "color", value: "#09090b" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "SHE SAID YES", type: "text", x: 80, y: 120, width: 640, height: 90, fontFamily: "Montserrat", fontSize: 56, fontWeight: 900, color: "#ffffff", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Emma & James", type: "text", x: 200, y: 220, width: 400, height: 40, fontFamily: "Playfair Display", fontSize: 30, fontWeight: 600, color: "#fbbf24", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Engagement Party: July 17", type: "text", x: 150, y: 300, width: 500, height: 32, fontFamily: "Inter", fontSize: 18, fontWeight: 400, color: "#a3a3a3", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "7:30 PM", type: "text", x: 350, y: 340, width: 100, height: 24, fontFamily: "Inter", fontSize: 14, fontWeight: 400, color: "#737373", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Sky View Terrace", type: "text", x: 200, y: 390, width: 400, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#d4d4d4", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP: emmajames@email.com", type: "text", x: 200, y: 450, width: 400, height: 22, fontFamily: "Inter", fontSize: 12, fontWeight: 300, color: "#525252", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "circle", x: 350, y: 40, width: 100, height: 100, fillColor: "#fbbf24", opacity: 0.08 },
-      { type: "line", x: 150, y: 280, width: 500, height: 1, strokeColor: "#fbbf24", strokeWidth: 1, opacity: 0.2 },
-      { type: "line", x: 150, y: 430, width: 500, height: 1, strokeColor: "#fbbf24", strokeWidth: 1, opacity: 0.2 },
-    ],
-  },
-  {
-    id: "engagement-garden",
-    name: "Garden Engagement",
-    category: "Engagement",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #fdf2f8 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Garden Love Story", type: "text", x: 80, y: 110, width: 640, height: 70, fontFamily: "Dancing Script", fontSize: 48, fontWeight: 700, color: "#15803d", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Hannah & Benjamin", type: "text", x: 200, y: 190, width: 400, height: 36, fontFamily: "Playfair Display", fontSize: 24, fontWeight: 600, color: "#166534", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "August 21, 2026", type: "text", x: 180, y: 280, width: 440, height: 32, fontFamily: "Inter", fontSize: 20, fontWeight: 500, color: "#15803d", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "4:00 PM", type: "text", x: 370, y: 320, width: 60, height: 24, fontFamily: "Inter", fontSize: 14, fontWeight: 400, color: "#16a34a", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Botanical Gardens Pavilion", type: "text", x: 120, y: 370, width: 560, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#166534", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Kindly RSVP by August 7th", type: "text", x: 200, y: 440, width: 400, height: 22, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#22c55e", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 340, y: 40, width: 120, height: 50, fillColor: "#22c55e", opacity: 0.2 },
-      { type: "shape", shapeType: "circle", x: 80, y: 470, width: 30, height: 30, fillColor: "#4ade80", opacity: 0.2 },
-      { type: "shape", shapeType: "circle", x: 690, y: 470, width: 30, height: 30, fillColor: "#4ade80", opacity: 0.2 },
-    ],
-  },
-  {
-    id: "engagement-beach",
-    name: "Beach Engagement",
-    category: "Engagement",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #a5f3fc 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Beachside Yes", type: "text", x: 80, y: 100, width: 640, height: 80, fontFamily: "Playfair Display", fontSize: 50, fontWeight: 700, color: "#0369a1", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Maya & Chris", type: "text", x: 200, y: 190, width: 400, height: 36, fontFamily: "Playfair Display", fontSize: 26, fontWeight: 600, color: "#0284c7", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "September 5, 2026", type: "text", x: 180, y: 280, width: 440, height: 32, fontFamily: "Inter", fontSize: 20, fontWeight: 500, color: "#0369a1", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "4:30 PM - Sunset", type: "text", x: 180, y: 320, width: 440, height: 26, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#0284c7", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "Makena Beach, Maui", type: "text", x: 180, y: 370, width: 440, height: 28, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#0369a1", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP: beachlove@email.com", type: "text", x: 220, y: 440, width: 360, height: 22, fontFamily: "Inter", fontSize: 12, fontWeight: 400, color: "#0ea5e9", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "circle", x: 350, y: 40, width: 100, height: 80, fillColor: "transparent", strokeColor: "#0ea5e9", strokeWidth: 2, opacity: 0.3 },
-      { type: "line", x: 100, y: 260, width: 600, height: 1, strokeColor: "#38bdf8", strokeWidth: 1, opacity: 0.4 },
-      { type: "line", x: 100, y: 420, width: 600, height: 1, strokeColor: "#38bdf8", strokeWidth: 1, opacity: 0.4 },
-      { type: "shape", shapeType: "star", x: 80, y: 460, width: 30, height: 30, fillColor: "#fbbf24", opacity: 0.4 },
-      { type: "shape", shapeType: "star", x: 690, y: 460, width: 25, height: 25, fillColor: "#fbbf24", opacity: 0.4 },
-    ],
-  },
+// ─── Template configs ────────────────────────────────────────────
+interface TemplateConfig {
+  id: string; name: string; category: string; layout: string; font: number; premium?: boolean; dark?: boolean; colorOverride?: string;
+}
 
-  // ========== HOUSEWARMING (4) ==========
-  {
-    id: "housewarming-cozy",
-    name: "Cozy Home Party",
-    category: "Housewarming",
+// Helper to build a template from config
+function buildTemplate(cfg: TemplateConfig): InvitationTemplate {
+  const p = palettes[cfg.category] || palettes["Wedding"];
+  const l = layouts[cfg.layout] || layouts["centered-elegant"];
+  const f = fonts[cfg.font % fonts.length];
+  const a = cfg.colorOverride || p.accent;
+
+  const fieldDefaults: Record<string, { label: string; default: string }> = {
+    "event-name": { label: "Event Name", default: cfg.category === "Wedding" ? "Together Forever" : cfg.category === "Birthday" ? "Happy Birthday!" : cfg.category === "Conference" ? "Annual Conference" : "Celebrate With Us" },
+    "host-name":  { label: "Host Name", default: cfg.category === "Wedding" ? "Bride & Groom" : "Hosted by Family" },
+    "date":       { label: "Date", default: "Save the Date" },
+    "time":       { label: "Time", default: "Event Time" },
+    "venue":      { label: "Venue", default: "Event Venue" },
+    "rsvp":       { label: "RSVP", default: "RSVP Details" },
+  };
+
+  const colors = { primary: p.primary, secondary: p.secondary, accent: p.accent };
+  const bg = cfg.dark ? { type: "color" as const, value: cfg.dark === true ? "#0f172a" : "#1c1917" } : { type: "gradient" as const, value: p.grad };
+
+  const fields = l.fields.map((fl) => {
+    const def = fieldDefaults[fl.id!] || { label: fl.id!, default: "" };
+    const isDisplay = fl.id === "event-name";
+    return {
+      id: fl.id!,
+      label: def.label,
+      default: def.default,
+      type: "text" as const,
+      x: fl.x!, y: fl.y!, width: fl.width!, height: fl.height!,
+      fontFamily: isDisplay ? f.display : f.body,
+      fontSize: fl.fontSize!,
+      fontWeight: fl.fontWeight!,
+      color: cfg.dark ? (isDisplay ? colors.accent : "#d4d4d4") : (isDisplay ? colors.primary : colors.muted),
+      textAlign: fl.textAlign as "center" | "left" | "right",
+      editable: true,
+      letterSpacing: fl.letterSpacing,
+    };
+  });
+
+  // Apply category-specific default text
+  const nameMap: Record<string, Record<string, string>> = {
+    Wedding:     { "event-name": "Love Story Begins", "host-name": "Bride & Groom", "date": "June 15, 2026", "venue": "Grand Chapel" },
+    Birthday:    { "event-name": "Happy Birthday!", "host-name": "Hosted by Family", "date": "July 20, 2026", "venue": "Party Hall" },
+    Engagement:  { "event-name": "She Said Yes!", "host-name": "The Happy Couple", "date": "August 5, 2026", "venue": "Celebration Venue" },
+    Anniversary: { "event-name": "Love Through Years", "host-name": "Together Forever", "date": "September 10, 2026", "venue": "Memory Lane" },
+    "Baby Shower": { "event-name": "Welcome Little One", "host-name": "Mom & Dad", "date": "October 12, 2026", "venue": "Family Home" },
+    Housewarming: { "event-name": "New Home Joys", "host-name": "The New Homeowners", "date": "November 5, 2026", "venue": "Our New Home" },
+    Graduation:  { "event-name": "Class of 2026!", "host-name": "The Graduate", "date": "May 20, 2026", "venue": "Graduation Hall" },
+    Corporate:   { "event-name": "Corporate Event", "host-name": "Company Name", "date": "Event Date", "venue": "Conference Center" },
+    Festival:    { "event-name": "Festival Celebrations", "host-name": "Community Welcome", "date": "Festival Dates", "venue": "Festival Grounds" },
+    Farewell:    { "event-name": "Farewell & Best Wishes", "host-name": "Your Colleagues", "date": "Farewell Date", "venue": "Office / Venue" },
+    Retirement:  { "event-name": "Welcome to Retirement", "host-name": "Friends & Family", "date": "Celebration Date", "venue": "Celebration Hall" },
+    Reception:   { "event-name": "Reception Celebration", "host-name": "The Newlyweds", "date": "Reception Date", "venue": "Banquet Hall" },
+    "Bridal Shower": { "event-name": "Bridal Shower", "host-name": "Honoring the Bride", "date": "Shower Date", "venue": "Tea Room" },
+    "Kids Party": { "event-name": "Kids Party Time!", "host-name": "Hosted by Parents", "date": "Party Date", "venue": "Play Center" },
+    Conference:  { "event-name": "Annual Conference", "host-name": "Industry Leaders", "date": "Conference Dates", "venue": "Convention Center" },
+  };
+
+  const catNames = nameMap[cfg.category] || nameMap["Wedding"];
+  fields.forEach((f) => {
+    if (catNames[f.id]) f.default = catNames[f.id];
+  });
+
+  const decos = l.decorations.map((d) => ({
+    ...d,
+    fillColor: d.fillColor || a,
+    strokeColor: d.strokeColor || a,
+  }));
+
+  const aiPrompt = `Create a ${cfg.style || "elegant"} ${cfg.category.toLowerCase()} invitation card with ${cfg.dark ? "dark" : "light"} background, featuring ${colors.primary} and ${colors.accent} color scheme, ${f.display} typography, and decorative elements.`;
+
+  return {
+    id: cfg.id,
+    name: cfg.name,
+    category: cfg.category,
     thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "🏠 New Home, New Memories!", type: "text", x: 60, y: 100, width: 680, height: 80, fontFamily: "Fredoka One", fontSize: 40, fontWeight: 700, color: "#c2410c", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Hosted by Alex & Taylor", type: "text", x: 140, y: 190, width: 520, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#9a3412", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, October 16th", type: "text", x: 150, y: 270, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#c2410c", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "3:00 PM - 8:00 PM", type: "text", x: 150, y: 310, width: 500, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#9a3412", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "1428 Maple Street", type: "text", x: 200, y: 360, width: 400, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#c2410c", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Please RSVP by October 9th", type: "text", x: 180, y: 430, width: 440, height: 24, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#b45309", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "rectangle", x: 80, y: 50, width: 640, height: 500, fillColor: "transparent", strokeColor: "#ea580c", strokeWidth: 2, opacity: 0.3 },
-      { type: "shape", shapeType: "heart", x: 360, y: 460, width: 80, height: 40, fillColor: "#f97316", opacity: 0.2 },
-    ],
-  },
-  {
-    id: "housewarming-modern",
-    name: "Modern Housewarming",
-    category: "Housewarming",
-    thumbnail: "",
-    background: { type: "color", value: "#fafafa" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "HOUSEWARMING", type: "text", x: 60, y: 110, width: 680, height: 80, fontFamily: "Montserrat", fontSize: 52, fontWeight: 800, color: "#171717", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Jessica & Ryan invite you over!", type: "text", x: 120, y: 200, width: 560, height: 30, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#525252", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Friday, November 5th", type: "text", x: 180, y: 280, width: 440, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#171717", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "7:00 PM", type: "text", x: 360, y: 320, width: 80, height: 26, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#525252", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "The Modern Condo, Unit 401", type: "text", x: 120, y: 370, width: 560, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#262626", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP by Oct 28th: jessryan@email.com", type: "text", x: 120, y: 440, width: 560, height: 22, fontFamily: "Inter", fontSize: 12, fontWeight: 400, color: "#a3a3a3", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "line", x: 120, y: 260, width: 560, height: 1, strokeColor: "#d4d4d4", strokeWidth: 1 },
-      { type: "line", x: 120, y: 420, width: 560, height: 1, strokeColor: "#d4d4d4", strokeWidth: 1 },
-    ],
-  },
-  {
-    id: "housewarming-garden",
-    name: "Garden Housewarming",
-    category: "Housewarming",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "Welcome to Our Home", type: "text", x: 80, y: 100, width: 640, height: 80, fontFamily: "Playfair Display", fontSize: 44, fontWeight: 700, color: "#065f46", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Natalie & Chris", type: "text", x: 220, y: 190, width: 360, height: 36, fontFamily: "Playfair Display", fontSize: 24, fontWeight: 600, color: "#047857", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Saturday, November 20th", type: "text", x: 150, y: 270, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#065f46", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "2:00 PM - 6:00 PM", type: "text", x: 150, y: 310, width: 500, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#047857", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "258 Oak Avenue", type: "text", x: 250, y: 360, width: 300, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#065f46", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "RSVP: natalieandchris@email.com", type: "text", x: 150, y: 430, width: 500, height: 24, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#059669", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "heart", x: 330, y: 40, width: 140, height: 50, fillColor: "#10b981", opacity: 0.2 },
-      { type: "shape", shapeType: "circle", x: 80, y: 480, width: 30, height: 30, fillColor: "#34d399", opacity: 0.3 },
-      { type: "shape", shapeType: "circle", x: 690, y: 480, width: 30, height: 30, fillColor: "#34d399", opacity: 0.3 },
-      { type: "line", x: 100, y: 250, width: 600, height: 1, strokeColor: "#34d399", strokeWidth: 1, opacity: 0.4 },
-      { type: "line", x: 100, y: 410, width: 600, height: 1, strokeColor: "#34d399", strokeWidth: 1, opacity: 0.4 },
-    ],
-  },
-  {
-    id: "housewarming-bbq",
-    name: "BBQ Housewarming",
-    category: "Housewarming",
-    thumbnail: "",
-    background: { type: "gradient", value: "linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fde047 100%)" },
-    width: 800, height: 600,
-    fields: [
-      { id: "event-name", label: "Event Name", default: "🔥 BBQ Housewarming", type: "text", x: 60, y: 100, width: 680, height: 80, fontFamily: "Fredoka One", fontSize: 44, fontWeight: 700, color: "#854d0e", textAlign: "center", editable: true },
-      { id: "host-name", label: "Host Name", default: "Hosted by The Martinez Family", type: "text", x: 120, y: 190, width: 560, height: 28, fontFamily: "Inter", fontSize: 16, fontWeight: 500, color: "#a16207", textAlign: "center", editable: true },
-      { id: "date", label: "Date", default: "Sunday, June 27th", type: "text", x: 150, y: 270, width: 500, height: 36, fontFamily: "Inter", fontSize: 22, fontWeight: 600, color: "#854d0e", textAlign: "center", editable: true },
-      { id: "time", label: "Time", default: "12:00 PM - 6:00 PM", type: "text", x: 150, y: 310, width: 500, height: 28, fontFamily: "Inter", fontSize: 15, fontWeight: 400, color: "#a16207", textAlign: "center", editable: true },
-      { id: "venue", label: "Venue", default: "452 Pine Street Backyard", type: "text", x: 150, y: 360, width: 500, height: 30, fontFamily: "Inter", fontSize: 18, fontWeight: 500, color: "#854d0e", textAlign: "center", editable: true },
-      { id: "rsvp", label: "RSVP", default: "Bring your appetite! RSVP by June 20th", type: "text", x: 100, y: 440, width: 600, height: 24, fontFamily: "Inter", fontSize: 13, fontWeight: 400, color: "#a16207", textAlign: "center", editable: true },
-    ],
-    decorations: [
-      { type: "shape", shapeType: "star", x: 60, y: 60, width: 40, height: 40, fillColor: "#eab308", opacity: 0.5 },
-      { type: "shape", shapeType: "star", x: 700, y: 60, width: 40, height: 40, fillColor: "#f59e0b", opacity: 0.5 },
-      { type: "shape", shapeType: "star", x: 60, y: 490, width: 30, height: 30, fillColor: "#eab308", opacity: 0.4 },
-      { type: "shape", shapeType: "star", x: 710, y: 490, width: 30, height: 30, fillColor: "#f59e0b", opacity: 0.4 },
-      { type: "shape", shapeType: "circle", x: 360, y: 470, width: 80, height: 50, fillColor: "transparent", strokeColor: "#eab308", strokeWidth: 2, opacity: 0.3 },
-    ],
-  },
-]
+    premium: cfg.premium || false,
+    style: cfg.layout,
+    orientation: l.width > l.height ? "landscape" : l.height > l.width ? "portrait" : "square",
+    background: bg,
+    width: l.width,
+    height: l.height,
+    fields,
+    decorations: decos,
+    colors,
+    aiPrompt,
+  };
+}
+
+// ====== 60+ TEMPLATE DEFINITIONS ==================================
+
+const configs: TemplateConfig[] = [
+  // ── WEDDING (10) ──
+  { id: "wedding-elegant", name: "Elegant Wedding", category: "Wedding", layout: "centered-elegant", font: 0 },
+  { id: "wedding-rustic", name: "Rustic Barn Wedding", category: "Wedding", layout: "centered-elegant", font: 1, colorOverride: "#d97706" },
+  { id: "wedding-modern", name: "Modern Minimalist", category: "Wedding", layout: "modern-minimal", font: 1 },
+  { id: "wedding-floral", name: "Floral Romance", category: "Wedding", layout: "flower-frame", font: 2 },
+  { id: "wedding-luxury", name: "Luxury Gold Wedding", category: "Wedding", layout: "luxury-gold", font: 0, premium: true },
+  { id: "wedding-dark", name: "Midnight Romance", category: "Wedding", layout: "dark-premium", font: 0, dark: true, premium: true },
+  { id: "wedding-beach", name: "Beach Wedding", category: "Wedding", layout: "centered-elegant", font: 2 },
+  { id: "wedding-garden", name: "Garden Ceremony", category: "Wedding", layout: "flower-frame", font: 0 },
+  { id: "wedding-vintage", name: "Vintage Charm", category: "Wedding", layout: "luxury-gold", font: 3, colorOverride: "#d97706" },
+  { id: "wedding-royal", name: "Royal Wedding", category: "Wedding", layout: "dark-premium", font: 0, premium: true, colorOverride: "#fbbf24" },
+
+  // ── BIRTHDAY (10) ──
+  { id: "birthday-kids", name: "Kids Birthday Party", category: "Birthday", layout: "playful-colorful", font: 3 },
+  { id: "birthday-18th", name: "18th Birthday Bash", category: "Birthday", layout: "dark-premium", font: 1, dark: true },
+  { id: "birthday-surprise", name: "Surprise Party", category: "Birthday", layout: "playful-colorful", font: 3 },
+  { id: "birthday-elegant", name: "Elegant Birthday", category: "Birthday", layout: "luxury-gold", font: 0, dark: true },
+  { id: "birthday-50th", name: "50th Golden Birthday", category: "Birthday", layout: "luxury-gold", font: 0, premium: true },
+  { id: "birthday-sweet16", name: "Sweet Sixteen", category: "Birthday", layout: "flower-frame", font: 3, premium: true },
+  { id: "birthday-unicorn", name: "Unicorn Party", category: "Birthday", layout: "playful-colorful", font: 3 },
+  { id: "birthday-pool", name: "Pool Party", category: "Birthday", layout: "playful-colorful", font: 3 },
+  { id: "birthday-30th", name: "30th Fabulous", category: "Birthday", layout: "dark-premium", font: 1, dark: true },
+  { id: "birthday-100th", name: "100 Years Young", category: "Birthday", layout: "centered-elegant", font: 4 },
+
+  // ── ENGAGEMENT (5) ──
+  { id: "engagement-classic", name: "Classic Engagement", category: "Engagement", layout: "centered-elegant", font: 0 },
+  { id: "engagement-modern", name: "Modern Love", category: "Engagement", layout: "dark-premium", font: 1, dark: true },
+  { id: "engagement-garden", name: "Garden Engagement", category: "Engagement", layout: "flower-frame", font: 2 },
+  { id: "engagement-beach", name: "Beach Engagement", category: "Engagement", layout: "centered-elegant", font: 4 },
+  { id: "engagement-rooftop", name: "Rooftop Proposal", category: "Engagement", layout: "dark-premium", font: 1, dark: true, premium: true },
+
+  // ── ANNIVERSARY (5) ──
+  { id: "anniversary-1st", name: "First Anniversary", category: "Anniversary", layout: "centered-elegant", font: 0 },
+  { id: "anniversary-25th", name: "Silver Anniversary", category: "Anniversary", layout: "luxury-gold", font: 0, premium: true },
+  { id: "anniversary-50th", name: "Golden Anniversary", category: "Anniversary", layout: "luxury-gold", font: 0, premium: true, colorOverride: "#fbbf24" },
+  { id: "anniversary-surprise", name: "Anniversary Surprise", category: "Anniversary", layout: "playful-colorful", font: 3 },
+  { id: "anniversary-romantic", name: "Romantic Evening", category: "Anniversary", layout: "flower-frame", font: 2 },
+
+  // ── BABY SHOWER (5) ──
+  { id: "baby-classic", name: "Classic Baby Shower", category: "Baby Shower", layout: "centered-elegant", font: 0 },
+  { id: "baby-gender", name: "Gender Reveal", category: "Baby Shower", layout: "playful-colorful", font: 3 },
+  { id: "baby-woodland", name: "Woodland Theme", category: "Baby Shower", layout: "flower-frame", font: 0 },
+  { id: "baby-twins", name: "Twins Celebration", category: "Baby Shower", layout: "centered-elegant", font: 0 },
+  { id: "baby-boho", name: "Boho Baby Shower", category: "Baby Shower", layout: "flower-frame", font: 2 },
+
+  // ── HOUSEWARMING (5) ──
+  { id: "housewarming-cozy", name: "Cozy Home Party", category: "Housewarming", layout: "playful-colorful", font: 3 },
+  { id: "housewarming-modern", name: "Modern Housewarming", category: "Housewarming", layout: "modern-minimal", font: 1 },
+  { id: "housewarming-garden", name: "Garden Housewarming", category: "Housewarming", layout: "centered-elegant", font: 0 },
+  { id: "housewarming-bbq", name: "BBQ Housewarming", category: "Housewarming", layout: "playful-colorful", font: 3 },
+  { id: "housewarming-condo", name: "Condo Warming", category: "Housewarming", layout: "modern-minimal", font: 1 },
+
+  // ── GRADUATION (5) ──
+  { id: "grad-highschool", name: "High School Grad", category: "Graduation", layout: "playful-colorful", font: 1 },
+  { id: "grad-college", name: "College Graduation", category: "Graduation", layout: "dark-premium", font: 1, dark: true },
+  { id: "grad-masters", name: "Master's Degree", category: "Graduation", layout: "luxury-gold", font: 0, premium: true },
+  { id: "grad-openhouse", name: "Graduation Party", category: "Graduation", layout: "centered-elegant", font: 4 },
+  { id: "grad-phd", name: "PhD Celebration", category: "Graduation", layout: "modern-minimal", font: 1, premium: true },
+
+  // ── CORPORATE (5) ──
+  { id: "corp-annual", name: "Annual Gala", category: "Corporate", layout: "luxury-gold", font: 1, premium: true },
+  { id: "corp-meeting", name: "Board Meeting", category: "Corporate", layout: "modern-minimal", font: 1 },
+  { id: "corp-retreat", name: "Company Retreat", category: "Corporate", layout: "centered-elegant", font: 4 },
+  { id: "corp-awards", name: "Awards Ceremony", category: "Corporate", layout: "dark-premium", font: 1, dark: true, premium: true },
+  { id: "corp-party", name: "Office Party", category: "Corporate", layout: "playful-colorful", font: 4 },
+
+  // ── FESTIVAL (10) ──
+  { id: "fest-diwali", name: "Diwali Celebrations", category: "Festival", layout: "luxury-gold", font: 0, premium: true },
+  { id: "fest-christmas", name: "Christmas Party", category: "Festival", layout: "playful-colorful", font: 3 },
+  { id: "fest-hanukkah", name: "Hanukkah Gathering", category: "Festival", layout: "centered-elegant", font: 0 },
+  { id: "fest-eid", name: "Eid Celebration", category: "Festival", layout: "luxury-gold", font: 0, premium: true },
+  { id: "fest-halloween", name: "Halloween Bash", category: "Festival", layout: "dark-premium", font: 3, dark: true },
+  { id: "fest-thanksgiving", name: "Thanksgiving Dinner", category: "Festival", layout: "centered-elegant", font: 0 },
+  { id: "fest-newyear", name: "New Year's Eve", category: "Festival", layout: "dark-premium", font: 1, dark: true, premium: true },
+  { id: "fest-ramadan", name: "Ramadan Iftar", category: "Festival", layout: "luxury-gold", font: 0 },
+  { id: "fest-easter", name: "Easter Brunch", category: "Festival", layout: "playful-colorful", font: 3 },
+  { id: "fest-holi", name: "Holi Color Festival", category: "Festival", layout: "playful-colorful", font: 3 },
+
+  // ── FAREWELL (5) ──
+  { id: "farewell-colleague", name: "Farewell Colleague", category: "Farewell", layout: "centered-elegant", font: 4 },
+  { id: "farewell-boss", name: "Farewell Boss", category: "Farewell", layout: "modern-minimal", font: 1 },
+  { id: "farewell-moving", name: "Moving Away Party", category: "Farewell", layout: "playful-colorful", font: 3 },
+  { id: "farewell-retire", name: "Retirement Farewell", category: "Farewell", layout: "luxury-gold", font: 0 },
+  { id: "farewell-study", name: "Study Abroad Farewell", category: "Farewell", layout: "playful-colorful", font: 3 },
+
+  // ── RETIREMENT (5) ──
+  { id: "retire-happy", name: "Happy Retirement", category: "Retirement", layout: "centered-elegant", font: 4 },
+  { id: "retire-party", name: "Retirement Party", category: "Retirement", layout: "playful-colorful", font: 3 },
+  { id: "retire-golf", name: "Retirement Golf Day", category: "Retirement", layout: "modern-minimal", font: 1 },
+  { id: "retire-travel", name: "Travel Retirement", category: "Retirement", layout: "flower-frame", font: 0 },
+  { id: "retire-dinner", name: "Retirement Dinner", category: "Retirement", layout: "luxury-gold", font: 0, premium: true },
+
+  // ── RECEPTION (5) ──
+  { id: "reception-evening", name: "Evening Reception", category: "Reception", layout: "luxury-gold", font: 0, premium: true },
+  { id: "reception-cocktail", name: "Cocktail Reception", category: "Reception", layout: "dark-premium", font: 1, dark: true },
+  { id: "reception-garden", name: "Garden Reception", category: "Reception", layout: "flower-frame", font: 2 },
+  { id: "reception-hall", name: "Grand Ballroom", category: "Reception", layout: "centered-elegant", font: 0 },
+  { id: "reception-rooftop", name: "Rooftop Reception", category: "Reception", layout: "dark-premium", font: 1, dark: true },
+
+  // ── BRIDAL SHOWER (5) ──
+  { id: "bridal-classic", name: "Classic Bridal Shower", category: "Bridal Shower", layout: "centered-elegant", font: 0 },
+  { id: "bridal-tea", name: "Tea Party Shower", category: "Bridal Shower", layout: "flower-frame", font: 2 },
+  { id: "bridal-brunch", name: "Bridal Brunch", category: "Bridal Shower", layout: "playful-colorful", font: 3 },
+  { id: "bridal-lingerie", name: "Lingerie Shower", category: "Bridal Shower", layout: "dark-premium", font: 1, dark: true },
+  { id: "bridal-garden", name: "Garden Bridal Shower", category: "Bridal Shower", layout: "flower-frame", font: 0, premium: true },
+
+  // ── KIDS PARTY (5) ──
+  { id: "kids-superhero", name: "Superhero Party", category: "Kids Party", layout: "playful-colorful", font: 3 },
+  { id: "kids-princess", name: "Princess Party", category: "Kids Party", layout: "playful-colorful", font: 3 },
+  { id: "kids-pirate", name: "Pirate Adventure", category: "Kids Party", layout: "playful-colorful", font: 3 },
+  { id: "kids-dinosaur", name: "Dinosaur Party", category: "Kids Party", layout: "playful-colorful", font: 3 },
+  { id: "kids-safari", name: "Safari Adventure", category: "Kids Party", layout: "playful-colorful", font: 3 },
+
+  // ── CONFERENCE (5) ──
+  { id: "conf-annual", name: "Annual Conference", category: "Conference", layout: "modern-minimal", font: 1, premium: true },
+  { id: "conf-summit", name: "Leadership Summit", category: "Conference", layout: "dark-premium", font: 1, dark: true, premium: true },
+  { id: "conf-workshop", name: "Workshop Series", category: "Conference", layout: "centered-elegant", font: 4 },
+  { id: "conf-tech", name: "Tech Conference", category: "Conference", layout: "modern-minimal", font: 1 },
+  { id: "conf-networking", name: "Networking Mixer", category: "Conference", layout: "playful-colorful", font: 4 },
+];
+
+export const invitationTemplates: InvitationTemplate[] = configs.map(buildTemplate);
+
+export const templateCategories = [...new Set(configs.map((c) => c.category))].sort();
+export const premiumTemplates = configs.filter((c) => c.premium).map((c) => c.id);
