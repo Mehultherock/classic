@@ -10,10 +10,10 @@ import { useAuthStore } from "@/store/auth-store";
 import { getInitials } from "@/lib/utils";
 
 const navLinks = [
+  { href: "/dashboard/invitations/new", label: "Create" },
   { href: "/templates", label: "Templates" },
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {

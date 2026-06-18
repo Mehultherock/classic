@@ -114,7 +114,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center gap-4 mt-10"
           >
             <Link
-              href="/signup"
+              href="/dashboard/invitations/new"
               className={cn(
                 "group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white",
                 "bg-gradient-to-r from-primary via-primary-light to-primary bg-[length:200%_100%] animate-gradient",
@@ -127,16 +127,16 @@ export default function Hero() {
               }}
             >
               <Sparkles className="w-5 h-5" />
-              Start Designing Free
+              Create Invitation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
             <Link
-              href="/demo"
+              href="/templates"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold glass-strong hover:bg-white/10 transition-all duration-300 group"
             >
               <Play className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-              Watch Demo
+              Browse Templates
             </Link>
           </motion.div>
 
