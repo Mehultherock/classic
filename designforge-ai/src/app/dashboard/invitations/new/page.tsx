@@ -1,249 +1,255 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { EVENT_TYPES } from "@/lib/constants";
+import { useRouter } from "next/navigation";
 import {
-  ChevronLeft,
-  Sparkles,
-  Mail,
-  Calendar,
-  Clock,
-  MapPin,
-  Users,
-  QrCode,
-  Palette,
-  ImagePlus,
-  Loader2,
+  ChevronLeft, ChevronRight, Sparkles, Search, Layout,
+  Mail, Calendar, Clock, MapPin, User, AtSign,
+  ImageIcon, Loader2, Check, ArrowRight, Crown,
 } from "lucide-react";
+import { invitationTemplates, templateCategories, type InvitationTemplate } from "@/data/invitation-templates";
+import { buildAIPrompt, type FormValues } from "@/lib/ai-prompt-builder";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
+const categoryIcons: Record<string, string> = {
+  Wedding: "💍", Birthday: "🎂", Engagement: "💎", Anniversary: "💕",
+  "Baby Shower": "👶", Housewarming: "🏠", Graduation: "🎓", Corporate: "💼",
+  Festival: "🎉", Farewell: "👋", Retirement: "🌴", Reception: "🥂",
+  "Bridal Shower": "👰", "Kids Party": "🎈", Conference: "📊",
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+const steps = ["Category", "Template", "Details", "Generate"];
 
-export default function NewInvitationPage() {
-  const [form, setForm] = useState({
-    eventName: "",
-    eventType: "",
-    eventDate: "",
-    eventTime: "",
-    venue: "",
-    theme: "",
-    customInstructions: "",
-    rsvpEnabled: true,
-    qrEnabled: false,
-  });
+export default function NewInvitationFlow() {
+  const router = useRouter();
+  const [step, setStep] = useState(0);
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<InvitationTemplate | null>(null);
+  const [form, setForm] = useState<Record<string, string>>({});
   const [generating, setGenerating] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
-  const validate = () => {
-    const errs: Record<string, string> = {};
-    if (!form.eventName) errs.eventName = "Event name is required";
-    if (!form.eventType) errs.eventType = "Event type is required";
-    if (!form.eventDate) errs.eventDate = "Event date is required";
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
+  const filteredTemplates = useMemo(() => {
+    let list = invitationTemplates;
+    if (selectedCategory) list = list.filter((t) => t.category === selectedCategory);
+    if (search) list = list.filter((t) => t.name.toLowerCase().includes(search.toLowerCase()));
+    return list;
+  }, [selectedCategory, search]);
+
+  const handleSelectTemplate = (t: InvitationTemplate) => {
+    setSelectedTemplate(t);
+    const fv: Record<string, string> = {};
+    t.fields.forEach((f) => { fv[f.id] = f.default; });
+    setForm(fv);
+    setStep(2);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
+  const handleGenerate = async () => {
+    if (!selectedTemplate) return;
     setGenerating(true);
-    setTimeout(() => {
-      window.location.href = "/dashboard/invitations";
-    }, 2000);
+    const values: FormValues = {
+      eventName: form["event-name"] || "",
+      hostName: form["host-name"] || "",
+      date: form["date"] || "",
+      time: form["time"] || "",
+      venue: form["venue"] || "",
+      rsvp: form["rsvp"] || "",
+    };
+    const { imagePrompt } = buildAIPrompt(selectedTemplate, values);
+    try {
+      const res = await fetch("/api/ai/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: imagePrompt, type: "image", style: selectedTemplate.style }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setGeneratedImage(data.imageUrl || data.result || null);
+      }
+    } catch {}
+    setGenerating(false);
+    setStep(3);
+  };
+
+  const handleOpenEditor = () => {
+    const t = selectedTemplate;
+    if (!t) return;
+    const params = new URLSearchParams({ template: t.id, title: form["event-name"] || t.name });
+    Object.entries(form).forEach(([k, v]) => params.set(k, v));
+    router.push(`/editor/canva2/new?${params.toString()}`);
   };
 
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="visible" className="p-4 lg:p-8 max-w-4xl mx-auto space-y-8">
-      <motion.div variants={itemVariants}>
+    <div className="min-h-screen bg-background">
+      <div className="max-w-6xl mx-auto px-4 py-6">
         <Link href="/dashboard/invitations" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4">
-          <ChevronLeft className="w-4 h-4" />
-          Back to Invitations
+          <ChevronLeft className="w-4 h-4" /> Back to Invitations
         </Link>
-        <h1 className="text-2xl lg:text-3xl font-bold text-foreground">Create New Invitation</h1>
-        <p className="text-muted-foreground mt-1">Fill in the details and let AI generate a beautiful invitation.</p>
-      </motion.div>
 
-      <form onSubmit={handleSubmit} className="space-y-8">
-        <motion.div variants={itemVariants} className="rounded-2xl glass border border-border/50 p-6 space-y-5">
-          <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-            <Mail className="w-5 h-5 text-primary" />
-            Event Details
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="md:col-span-2">
-              <Input
-                label="Event Name"
-                placeholder="e.g., Sarah & Alex Wedding"
-                value={form.eventName}
-                onChange={(e) => setForm({ ...form, eventName: e.target.value })}
-                error={errors.eventName}
-                icon={<Mail className="w-4 h-4" />}
-              />
+        {/* Steps indicator */}
+        <div className="flex items-center justify-center gap-2 mb-8">
+          {steps.map((s, i) => (
+            <div key={s} className="flex items-center gap-2">
+              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                i === step ? "bg-primary text-white" : i < step ? "bg-primary/20 text-primary" : "bg-surface-hover text-muted-foreground"
+              }`}>
+                {i < step ? <Check className="w-3.5 h-3.5" /> : <span className="w-3.5 h-3.5 rounded-full border-2 border-current flex items-center justify-center text-[10px] font-bold">{i + 1}</span>}
+                {s}
+              </div>
+              {i < steps.length - 1 && <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/40" />}
             </div>
-            <div>
-              <label className="text-sm font-medium text-muted-foreground block mb-1.5">Event Type</label>
-              <div className="relative">
-                <select
-                  value={form.eventType}
-                  onChange={(e) => setForm({ ...form, eventType: e.target.value })}
-                  className={cn(
-                    "w-full h-10 rounded-lg bg-card border px-3 text-sm text-foreground appearance-none focus:outline-none focus:ring-2 focus:ring-ring transition-all",
-                    errors.eventType ? "border-error" : "border-border"
-                  )}
-                >
-                  <option value="">Select type...</option>
-                  {EVENT_TYPES.map((t) => (
-                    <option key={t} value={t}>{t}</option>
+          ))}
+        </div>
+
+        <AnimatePresence mode="wait">
+          {step === 0 && (
+            <motion.div key="category" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
+              <div className="text-center space-y-2">
+                <h1 className="text-3xl font-bold text-foreground">What occasion are you celebrating?</h1>
+                <p className="text-muted-foreground">Choose a category to get started</p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {templateCategories.map((cat) => {
+                  const count = invitationTemplates.filter((t) => t.category === cat).length;
+                  const premiumCount = invitationTemplates.filter((t) => t.category === cat && t.premium).length;
+                  return (
+                    <button key={cat} onClick={() => { setSelectedCategory(cat); setStep(1); }}
+                      className="relative p-5 rounded-2xl border border-border hover:border-primary/40 bg-card hover:shadow-lg transition-all text-left group text-center">
+                      <span className="text-4xl block mb-2">{categoryIcons[cat] || "🎯"}</span>
+                      <p className="text-sm font-semibold text-foreground">{cat}</p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">{count} templates{premiumCount > 0 && ` · ${premiumCount} premium`}</p>
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+
+          {step === 1 && (
+            <motion.div key="template" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                    {categoryIcons[selectedCategory || ""]} {selectedCategory} Templates
+                  </h2>
+                  <p className="text-sm text-muted-foreground">Select a template to customize</p>
+                </div>
+                <button onClick={() => setStep(0)} className="text-sm text-muted-foreground hover:text-foreground underline">Change category</button>
+              </div>
+              <div className="relative max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input type="text" placeholder="Search templates..." value={search} onChange={(e) => setSearch(e.target.value)}
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {filteredTemplates.map((t) => (
+                  <button key={t.id} onClick={() => handleSelectTemplate(t)}
+                    className="relative group text-left rounded-2xl border border-border hover:border-primary/40 bg-card overflow-hidden transition-all hover:shadow-lg">
+                    <div className="aspect-[4/3] bg-surface flex items-center justify-center p-4"
+                      style={{ background: t.background.type === "color" ? t.background.value : undefined }}>
+                      <Layout className="w-10 h-10 text-muted-foreground/30" />
+                    </div>
+                    <div className="p-3">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-semibold text-foreground truncate">{t.name}</p>
+                        {t.premium && <Crown className="w-3.5 h-3.5 text-amber-500 shrink-0" />}
+                      </div>
+                      <p className="text-[11px] text-muted-foreground">{t.style.replace("-", " ")} · {t.orientation}</p>
+                    </div>
+                    {t.premium && <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded-md bg-amber-500/90 text-white text-[9px] font-bold">PRO</div>}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {step === 2 && selectedTemplate && (
+            <motion.div key="details" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                <h2 className="text-xl font-bold text-foreground">Fill in the details</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedTemplate.fields.map((f) => (
+                    <div key={f.id} className={f.id === "event-name" ? "md:col-span-2" : ""}>
+                      <label className="text-sm font-medium text-foreground block mb-1.5">{f.label}</label>
+                      <div className="relative">
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                          {f.id === "event-name" ? <Mail className="w-4 h-4" /> :
+                           f.id === "host-name" ? <User className="w-4 h-4" /> :
+                           f.id === "date" ? <Calendar className="w-4 h-4" /> :
+                           f.id === "time" ? <Clock className="w-4 h-4" /> :
+                           f.id === "venue" ? <MapPin className="w-4 h-4" /> :
+                           <AtSign className="w-4 h-4" />}
+                        </div>
+                        <input type="text" value={form[f.id] || ""} onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
+                          placeholder={f.default}
+                          className="w-full h-11 pl-10 pr-4 rounded-xl bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring" />
+                      </div>
+                    </div>
                   ))}
-                </select>
-                <ChevronLeft className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground rotate-[-90deg] pointer-events-none" />
-              </div>
-              {errors.eventType && <p className="text-xs text-error mt-1">{errors.eventType}</p>}
-            </div>
-            <div>
-              <Input
-                label="Event Date"
-                type="date"
-                value={form.eventDate}
-                onChange={(e) => setForm({ ...form, eventDate: e.target.value })}
-                error={errors.eventDate}
-                icon={<Calendar className="w-4 h-4" />}
-              />
-            </div>
-            <div>
-              <Input
-                label="Event Time (optional)"
-                type="time"
-                value={form.eventTime}
-                onChange={(e) => setForm({ ...form, eventTime: e.target.value })}
-                icon={<Clock className="w-4 h-4" />}
-              />
-            </div>
-            <div>
-              <Input
-                label="Venue (optional)"
-                placeholder="e.g., The Grand Ballroom"
-                value={form.venue}
-                onChange={(e) => setForm({ ...form, venue: e.target.value })}
-                icon={<MapPin className="w-4 h-4" />}
-              />
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="rounded-2xl glass border border-border/50 p-6 space-y-5">
-          <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-            <Palette className="w-5 h-5 text-accent" />
-            Design Preferences
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <Input
-                label="Theme / Style (optional)"
-                placeholder="e.g., Rustic, Modern, Vintage"
-                value={form.theme}
-                onChange={(e) => setForm({ ...form, theme: e.target.value })}
-                icon={<Palette className="w-4 h-4" />}
-              />
-            </div>
-            <div className="md:col-span-2">
-              <label className="text-sm font-medium text-muted-foreground block mb-1.5">
-                Custom Instructions (optional)
-              </label>
-              <textarea
-                placeholder="Any specific design requirements, colors, or elements you'd like to include..."
-                value={form.customInstructions}
-                onChange={(e) => setForm({ ...form, customInstructions: e.target.value })}
-                rows={3}
-                className="w-full rounded-xl bg-card border border-border p-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring transition-all resize-none"
-              />
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="rounded-2xl glass border border-border/50 p-6 space-y-5">
-          <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-            <Users className="w-5 h-5 text-secondary" />
-            Features
-          </h2>
-          <div className="space-y-4">
-            <label className="flex items-center justify-between p-4 rounded-xl bg-card border border-border cursor-pointer hover:border-primary/30 transition-colors">
-              <div className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-muted-foreground" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">Enable RSVP</p>
-                  <p className="text-xs text-muted-foreground">Allow guests to respond to your invitation</p>
+                </div>
+                <div className="flex gap-3">
+                  <button onClick={() => setStep(1)} className="h-11 px-6 rounded-xl border border-border text-sm text-foreground hover:bg-surface-hover transition-all">Back</button>
+                  <button onClick={handleGenerate} disabled={generating}
+                    className="flex-1 h-11 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50">
+                    {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+                    {generating ? "Generating..." : "Generate with AI"}
+                  </button>
                 </div>
               </div>
-              <div className={cn(
-                "w-10 h-6 rounded-full transition-colors relative",
-                form.rsvpEnabled ? "bg-primary" : "bg-card border border-border"
-              )}>
-                <div
-                  className={cn(
-                    "absolute top-0.5 w-5 h-5 rounded-full bg-white transition-transform shadow-sm",
-                    form.rsvpEnabled ? "translate-x-[18px]" : "translate-x-0.5"
-                  )}
-                />
-                <input
-                  type="checkbox"
-                  checked={form.rsvpEnabled}
-                  onChange={(e) => setForm({ ...form, rsvpEnabled: e.target.checked })}
-                  className="sr-only"
-                />
-              </div>
-            </label>
-            <label className="flex items-center justify-between p-4 rounded-xl bg-card border border-border cursor-pointer hover:border-primary/30 transition-colors">
-              <div className="flex items-center gap-3">
-                <QrCode className="w-5 h-5 text-muted-foreground" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">Generate QR Code</p>
-                  <p className="text-xs text-muted-foreground">Add a QR code for easy sharing</p>
+              <div className="space-y-4">
+                <h3 className="text-sm font-semibold text-foreground">Template Preview</h3>
+                <div className="aspect-[4/3] rounded-2xl border border-border bg-surface flex items-center justify-center p-6"
+                  style={{ background: selectedTemplate.background.type === "color" ? selectedTemplate.background.value : undefined }}>
+                  <div className="text-center">
+                    <p className="text-lg font-bold" style={{ color: selectedTemplate.colors.primary }}>{form["event-name"] || "Event Name"}</p>
+                    <p className="text-xs mt-1" style={{ color: selectedTemplate.colors.muted }}>{form["host-name"] || "Host Name"}</p>
+                    <div className="w-16 h-px mx-auto my-3" style={{ background: selectedTemplate.colors.accent, opacity: 0.4 }} />
+                    <p className="text-sm" style={{ color: selectedTemplate.colors.text }}>{form["date"] || "Date"}</p>
+                    <p className="text-xs" style={{ color: selectedTemplate.colors.muted }}>{form["time"] || "Time"}</p>
+                    <p className="text-xs mt-1" style={{ color: selectedTemplate.colors.text }}>{form["venue"] || "Venue"}</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="px-2 py-0.5 rounded-full bg-surface-hover text-[10px] text-muted-foreground">{selectedTemplate.category}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-surface-hover text-[10px] text-muted-foreground">{selectedTemplate.style}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-surface-hover text-[10px] text-muted-foreground">{selectedTemplate.orientation}</span>
                 </div>
               </div>
-              <div className={cn(
-                "w-10 h-6 rounded-full transition-colors relative",
-                form.qrEnabled ? "bg-primary" : "bg-card border border-border"
-              )}>
-                <div
-                  className={cn(
-                    "absolute top-0.5 w-5 h-5 rounded-full bg-white transition-transform shadow-sm",
-                    form.qrEnabled ? "translate-x-[18px]" : "translate-x-0.5"
-                  )}
-                />
-                <input
-                  type="checkbox"
-                  checked={form.qrEnabled}
-                  onChange={(e) => setForm({ ...form, qrEnabled: e.target.checked })}
-                  className="sr-only"
-                />
-              </div>
-            </label>
-          </div>
-        </motion.div>
+            </motion.div>
+          )}
 
-        <motion.div variants={itemVariants} className="flex items-center justify-end gap-4">
-          <Link href="/dashboard/invitations">
-            <Button type="button" variant="secondary">Cancel</Button>
-          </Link>
-          <Button type="submit" variant="gradient" size="lg" loading={generating}>
-            <Sparkles className="w-4 h-4 mr-2" />
-            {generating ? "Generating..." : "Generate Invitation"}
-          </Button>
-        </motion.div>
-      </form>
-    </motion.div>
+          {step === 3 && (
+            <motion.div key="generate" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
+              <div className="text-center space-y-2">
+                <h2 className="text-2xl font-bold text-foreground">Your invitation is ready!</h2>
+                <p className="text-muted-foreground">Open the editor to refine and download</p>
+              </div>
+              <div className="max-w-md mx-auto aspect-[4/3] rounded-2xl border border-border bg-surface flex items-center justify-center">
+                {generatedImage ? (
+                  <img src={generatedImage} alt="Generated invitation" className="w-full h-full object-contain rounded-2xl" />
+                ) : (
+                  <div className="text-center p-8">
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                      <Sparkles className="w-8 h-8 text-primary" />
+                    </div>
+                    <p className="text-sm font-medium text-foreground">AI generation completed</p>
+                    <p className="text-xs text-muted-foreground mt-1">Open the editor to see your design</p>
+                  </div>
+                )}
+              </div>
+              <div className="flex justify-center gap-3">
+                <button onClick={() => setStep(2)} className="h-11 px-6 rounded-xl border border-border text-sm text-foreground hover:bg-surface-hover transition-all">Back to edit</button>
+                <button onClick={handleOpenEditor}
+                  className="h-11 px-8 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-all flex items-center gap-2">
+                  Open in Editor <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
   );
 }
